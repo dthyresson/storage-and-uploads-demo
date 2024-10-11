@@ -5,9 +5,10 @@ import { Metadata } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
-const DEMO2_MUTATION = gql`
-  mutation Demo2Mutation($input: Demo2Input!) {
-    demo2(input: $input) {
+const DEMO3_MUTATION = gql`
+  mutation Demo3Mutation($input: Demo3Input!) {
+    demo3(input: $input) {
+      id
       content
       transformedContent
       reference
@@ -16,11 +17,11 @@ const DEMO2_MUTATION = gql`
   }
 `
 
-const Demo2Page = () => {
+const Demo3Page = () => {
   const [result, setResult] = useState(null)
-  const [demo2] = useMutation(DEMO2_MUTATION, {
+  const [demo3] = useMutation(DEMO3_MUTATION, {
     onCompleted: (data) => {
-      setResult(data.demo2)
+      setResult(data.demo3)
       toast.success('Content submitted successfully')
     },
     onError: (error) => {
@@ -29,14 +30,14 @@ const Demo2Page = () => {
   })
 
   const onSubmit = (data) => {
-    demo2({ variables: { input: data } })
+    demo3({ variables: { input: data } })
   }
 
   return (
     <>
-      <Metadata title="Demo2" description="Demo2 page" />
+      <Metadata title="Demo3" description="Demo3 page" />
 
-      <h1>Demo2Page</h1>
+      <h1>Demo3Page</h1>
 
       <Toaster />
 
@@ -52,6 +53,7 @@ const Demo2Page = () => {
       {result && (
         <div>
           <h2>Result:</h2>
+          <p>ID: {result.id}</p>
           <p>Content: {result.content}</p>
           <p>Transformed Content: {result.transformedContent}</p>
           <p>Reference: {result.reference}</p>
@@ -67,4 +69,4 @@ const Demo2Page = () => {
   )
 }
 
-export default Demo2Page
+export default Demo3Page

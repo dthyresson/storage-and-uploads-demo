@@ -1,16 +1,17 @@
 export const schema = gql`
-  type Demo2 {
+  type Demo3 {
+    id: ID!
     content: String!
     transformedContent: String!
     reference: String!
     storageReference: String! @withStorage
   }
 
-  input Demo2Input {
+  input Demo3Input {
     content: String!
   }
 
   type Mutation {
-    demo2(input: Demo2Input!): Demo2! @skipAuth
+    demo3(input: Demo3Input!): Demo3! @skipAuth
   }
 `
