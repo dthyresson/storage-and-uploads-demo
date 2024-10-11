@@ -6,7 +6,7 @@
 # https://redwoodjs.com/docs/app-configuration-redwood-toml
 
 [web]
-  title = "Redwood App"
+  title = "Redwood Storage and Uploads Demo"
   port = 8910
   apiUrl = "/.redwood/functions" # You can customize graphql and dbauth urls individually too: see https://redwoodjs.com/docs/app-configuration-redwood-toml#api-paths
   includeEnvironmentVariables = [
@@ -16,6 +16,9 @@
 [api]
   port = 8911
 [browser]
-  open = true
+  open = false
 [notifications]
   versionUpdates = ["latest"]
+[generate]
+  tests = false
+  stories = false

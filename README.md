@@ -31,6 +31,24 @@ Your browser should automatically open to [http://localhost:8910](http://localho
 >
 > For all the details, see the [CLI reference](https://redwoodjs.com/docs/cli-commands).
 
+## Demo1: File Upload Example
+
+This project includes a simple file upload demonstration called Demo1. Here's what it does:
+
+- Allows users to upload a single file
+- Displays the metadata of the uploaded file (name, type, size)
+- Uses Redwood's Form components and GraphQL mutations
+- Demonstrates error handling and user feedback with toast notifications
+
+To try out Demo1:
+
+1. Navigate to the Demo1 page in your browser
+2. Select a file using the file input
+3. Click the "Upload File" button
+4. View the file metadata displayed after successful upload
+
+This demo showcases basic file handling capabilities in a Redwood application, integrating frontend components with backend services through GraphQL.
+
 ## Prisma and the database
 
 Redwood wouldn't be a full-stack framework without a database. It all starts with the schema. Open the [`schema.prisma`](api/db/schema.prisma) file in `api/db` and replace the `UserExample` model with the following `Post` model:

@@ -9,15 +9,6 @@
 
 export default async () => {
   try {
-    // Create your database records here! For example, seed some users:
-    //
-    // const users = [
-    //   { name: 'Alice', email: 'alice@redwoodjs.com' },
-    //   { name: 'Bob', email: 'bob@redwoodjs.com' },
-    // ]
-    //
-    // await db.user.createMany({ data: users })
-
     console.info(
       '\n  No seed data, skipping. See scripts/seed.ts to start seeding your database!\n'
     )
