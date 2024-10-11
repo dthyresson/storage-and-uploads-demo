@@ -53,6 +53,12 @@ Note that not all sdl types will has Prisma models. And not all Prisma models wi
 
 # API Side
 
+## GraphQL directory
+
+All GraphQL types are found in the `api/src/graphql` directory.
+
+Don't use `extend` in the GraphQL schema unless specifically told to so.
+
 ## Logging
 
 Logging is done using the `logger` library which is a found in `src/lib/logger.ts`.
@@ -77,7 +83,7 @@ The auth and currentUser are made available to all pages and cells via the `useA
 
 Auth lib is found in `src/lib/auth.ts` for convenience to get the current user and check if the user is authenticated.
 
-# Wed Side
+# Web Side
 
 ### Router
 
@@ -224,6 +230,11 @@ const PostForm = () => {
 - camelCase for variable names
 - prefer `const` over `let`
 - prefer arrow functions over `function`
+- prefer `const` over `let`
+- prefer on api side to use `logger` over `console` (debug level preferred)
+- when using logger, include any data that might help with debugging as the first argument and in the string message include file name or function name as appropriate to help identify where the log statement is coming from
+- when logging on web side, use `console`
+
 
 ## Additional RedwoodJS References
 

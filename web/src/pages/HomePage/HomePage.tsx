@@ -14,6 +14,9 @@ const HomePage = () => {
         <li>
           <Link to={routes.demo1()}>Demo 1</Link>
         </li>
+        <li>
+          <Link to={routes.demo2()}>Demo 2</Link>
+        </li>
       </ul>
     </>
   )

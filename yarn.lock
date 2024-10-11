@@ -4831,6 +4831,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@redwoodjs/storage-adapter-filesystem@file:./tarballs/redwoodjs-storage-adapter-filesystem.tgz::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 8.0.0
+  resolution: "@redwoodjs/storage-adapter-filesystem@file:./tarballs/redwoodjs-storage-adapter-filesystem.tgz#./tarballs/redwoodjs-storage-adapter-filesystem.tgz::hash=a2de74&locator=root-workspace-0b6124%40workspace%3A."
+  dependencies:
+    "@redwoodjs/storage-core": "npm:8.0.0"
+    mime-types: "npm:2.1.35"
+    uuid: "npm:10.0.0"
+  checksum: 10c0/d0248e5cb23babc14d9fa7158b60916cf5324cc00e332bda2cc1fa18d35c19ce9334f0aba0204b941b8c3e29947b7c4b4a2b2eff8e1df34f5895e2d14b98e9ff
+  languageName: node
+  linkType: hard
+
+"@redwoodjs/storage-core@file:./tarballs/redwoodjs-storage-core.tgz::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 8.0.0
+  resolution: "@redwoodjs/storage-core@file:./tarballs/redwoodjs-storage-core.tgz#./tarballs/redwoodjs-storage-core.tgz::hash=3483d7&locator=root-workspace-0b6124%40workspace%3A."
+  checksum: 10c0/35548eacb19588050b90b2263ac83d0dec124ac34174d7857cf6fe8153365ab8621c9bd50247d42d12555c8b1fe05b14b4ac74cd7658547729280daf1b4421d4
+  languageName: node
+  linkType: hard
+
 "@redwoodjs/structure@file:./tarballs/redwoodjs-structure.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
   resolution: "@redwoodjs/structure@file:./tarballs/redwoodjs-structure.tgz#./tarballs/redwoodjs-structure.tgz::hash=121dd4&locator=root-workspace-0b6124%40workspace%3A."
@@ -6400,6 +6418,8 @@ __metadata:
   dependencies:
     "@redwoodjs/api": "npm:8.4.0"
     "@redwoodjs/graphql-server": "npm:8.4.0"
+    "@redwoodjs/storage-adapter-filesystem": "npm:8.4.0"
+    "@redwoodjs/storage-core": "npm:8.4.0"
   languageName: unknown
   linkType: soft
 
