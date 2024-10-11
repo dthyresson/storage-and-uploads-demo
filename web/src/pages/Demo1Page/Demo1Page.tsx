@@ -19,6 +19,7 @@ const DEMO1_MUTATION = gql`
 const Demo1Page = () => {
   const [demo1, { loading, error }] = useMutation(DEMO1_MUTATION)
   const [result, setResult] = useState(null)
+
   const onSubmit = async (data) => {
     console.log('data', data)
     try {
@@ -34,41 +35,58 @@ const Demo1Page = () => {
   }
 
   return (
-    <>
+    <div className="container mx-auto px-4 py-8">
       <Metadata title="Demo1" description="Demo1 page" />
       <Toaster />
 
-      <h1>Demo 1</h1>
-      <p>Upload a file to see the metadata</p>
+      <h1 className="mb-4 text-3xl font-bold">Demo 1</h1>
+      <p className="mb-6 text-gray-600">Upload a file to see the metadata</p>
 
-      <Form onSubmit={onSubmit}>
-        <div>
-          <FileField name="uploadedFiles" validation={{ required: true }} />
-          <FieldError name="uploadedFiles" />
+      <Form onSubmit={onSubmit} className="mb-8">
+        <div className="mb-4">
+          <FileField
+            name="uploadedFiles"
+            validation={{ required: true }}
+            className="block w-full text-sm text-gray-500
+              file:mr-4 file:rounded-full file:border-0
+              file:bg-blue-50 file:px-4
+              file:py-2 file:text-sm
+              file:font-semibold file:text-blue-700
+              hover:file:bg-blue-100"
+          />
+          <FieldError
+            name="uploadedFiles"
+            className="mt-1 text-sm text-red-600"
+          />
         </div>
-        <Submit disabled={loading}>
+        <Submit
+          disabled={loading}
+          className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600
+            disabled:cursor-not-allowed disabled:opacity-50"
+        >
           {loading ? 'Uploading...' : 'Upload File'}
         </Submit>
       </Form>
 
-      {error && <p>Error: {error.message}</p>}
+      {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
+
       {result && (
-        <div>
-          <h2>File Metadata</h2>
-          <ul>
+        <div className="rounded-lg bg-gray-100 p-6 shadow-md">
+          <h2 className="mb-4 text-2xl font-semibold">File Metadata</h2>
+          <ul className="space-y-2">
             <li>
-              <strong>Name:</strong> {result.name}
+              <strong className="font-medium">Name:</strong> {result.name}
             </li>
             <li>
-              <strong>Type:</strong> {result.type}
+              <strong className="font-medium">Type:</strong> {result.type}
             </li>
             <li>
-              <strong>Size:</strong> {result.size} bytes
+              <strong className="font-medium">Size:</strong> {result.size} bytes
             </li>
           </ul>
         </div>
       )}
-    </>
+    </div>
   )
 }
 

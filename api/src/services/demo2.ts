@@ -7,13 +7,13 @@ export const demo2: MutationResolvers['demo2'] = async ({ input }) => {
   logger.debug({ input }, 'demo2')
   const { content } = input
   const transformedContent = content.toUpperCase()
-
-  const reference = await storage.writeData(Buffer.from(transformedContent))
+  const data = Buffer.from(transformedContent)
+  const reference = await storage.writeData(data)
 
   return {
     content,
     transformedContent,
     reference,
-    storageReference: reference,
+    url: reference,
   }
 }

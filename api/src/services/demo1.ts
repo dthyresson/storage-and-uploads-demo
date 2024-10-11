@@ -7,6 +7,7 @@ import { logger } from 'src/lib/logger'
 //
 // Handles file upload, validates input, and returns file metadata
 export const demo1: MutationResolvers['demo1'] = async ({ input }) => {
+  logger.debug({ fileCount: input.uploadedFiles.length }, 'demo1')
   const { uploadedFiles } = input
 
   if (!uploadedFiles || uploadedFiles.length === 0) {

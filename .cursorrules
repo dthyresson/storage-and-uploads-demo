@@ -118,6 +118,20 @@ All routes are defined in the `web/src/Routes.tsx` file.
 
 Links to routes are generated using the `Link` component from the `@redwoodjs/router` package as is the `navigate()` function.
 
+### Layouts
+
+Layouts are React components that wrap pages and provide a consistent structure for them. They are found in `web/src/layouts`.
+
+The `Set` component is used to wrap pages in a layout in the `Routes.tsx` file inside the `Router` component imported from `@redwoodjs/router`.
+
+### Pages
+
+Pages are React components that are mapped to routes in the `Routes.tsx` file. They are named like `PageNamePage` and are typically found in `web/src/pages`.
+
+### Links and Navigation
+
+Links to routes are generated using the `Link` component from the `@redwoodjs/router` package as is the `navigate()` function: `import { Link, routes } from '@redwoodjs/router'`.
+
 ### GraphQL
 
 Redwood uses GraphQL as the glue between the front- and backends: whenever you want data from the server/database, you're going to retrieve it via GraphQL. Now, we could have just given you raw access to some GraphQL library and let you make those calls yourself. We use Apollo Client on the frontend and Apollo provides hooks like useQuery() and useMutation() to retrieve and set data, respectively. But Redwood has a much deeper integration.
