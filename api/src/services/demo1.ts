@@ -7,7 +7,6 @@ import { logger } from 'src/lib/logger'
 //
 // Handles file upload, validates input, and returns file metadata
 export const demo1: MutationResolvers['demo1'] = async ({ input }) => {
-  logger.info({ input }, 'demo1 input')
   const { uploadedFiles } = input
 
   if (!uploadedFiles || uploadedFiles.length === 0) {
@@ -15,9 +14,10 @@ export const demo1: MutationResolvers['demo1'] = async ({ input }) => {
   }
 
   const firstFile = uploadedFiles[0]
-  logger.info({ firstFile }, 'firstFile')
 
   const { name, type, size } = firstFile
+
+  logger.info({ name, type, size }, 'demo1 file metadata')
 
   return {
     id: Math.random().toString(36).substring(2, 10),
