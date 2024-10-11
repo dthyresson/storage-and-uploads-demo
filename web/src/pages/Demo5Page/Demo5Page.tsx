@@ -19,21 +19,21 @@ const DEMO5_MUTATION = gql`
 `
 
 const Demo5Page = () => {
-  const [demo5, { loading, error }] = useMutation(DEMO5_MUTATION)
+  const [demo5, { loading, error }] = useMutation(DEMO5_MUTATION, {
+    onCompleted: (data) => {
+      console.log('Files uploaded:', data.demo5.images)
+      toast.success(`${data.demo5.images.length} files uploaded successfully!`)
+      navigate(routes.demo5Images())
+    },
+    onError: (error) => {
+      console.error('Error uploading files:', error)
+      toast.error(`Error uploading files: ${error.message}`)
+    },
+  })
 
   const onSubmit = async (data) => {
     console.log('data', data)
-    try {
-      const result = await demo5({ variables: { input: data } })
-      console.log('Files uploaded:', result.data.demo5.images)
-      toast.success(
-        `${result.data.demo5.images.length} files uploaded successfully!`
-      )
-      navigate(routes.demo5Images())
-    } catch (error) {
-      console.error('Error uploading files:', error)
-      toast.error(`Error uploading files: ${error.message}`)
-    }
+    await demo5({ variables: { input: data } })
   }
 
   return (

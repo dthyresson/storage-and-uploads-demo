@@ -17,20 +17,26 @@ const DEMO1_MUTATION = gql`
 `
 
 const Demo1Page = () => {
-  const [demo1, { loading, error }] = useMutation(DEMO1_MUTATION)
   const [result, setResult] = useState(null)
+
+  const [demo1, { loading, error }] = useMutation(DEMO1_MUTATION, {
+    onCompleted: (data) => {
+      console.log('File uploaded:', data.demo1)
+      toast.success(`File "${data.demo1.name}" uploaded successfully!`)
+      setResult(data.demo1)
+    },
+    onError: (error) => {
+      console.error('Error uploading file:', error)
+      toast.error(`Error uploading file: ${error.message}`)
+    },
+  })
 
   const onSubmit = async (data) => {
     console.log('data', data)
     try {
-      const result = await demo1({ variables: { input: data } })
-      console.log('File uploaded:', result.data.demo1)
-      toast.success(`File "${result.data.demo1.name}" uploaded successfully!`)
-      // set the result in the state
-      setResult(result.data.demo1)
+      await demo1({ variables: { input: data } })
     } catch (error) {
-      console.error('Error uploading file:', error)
-      toast.error(`Error uploading file: ${error.message}`)
+      console.error('Unexpected error:', error)
     }
   }
 

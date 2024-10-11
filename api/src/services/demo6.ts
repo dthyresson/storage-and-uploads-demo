@@ -17,7 +17,7 @@ export const demo6: MutationResolvers['demo5'] = async ({ input }) => {
       url: await storage.writeFile(image),
     } as Demo6Image
 
-    const createdImage = await db.demo5Image.create({ data: processedImage })
+    const createdImage = await db.demo6Image.create({ data: processedImage })
     images.push(createdImage)
   }
 

@@ -8,6 +8,8 @@ export const QUERY = gql`
   query Demo5ImagesQuery {
     demo5Images {
       id
+      createdAt
+      updatedAt
       url
       name
       type
@@ -36,10 +38,13 @@ export const Success = ({ demo5Images }) => {
             alt={item.name}
             className="h-48 w-full object-cover"
           />
-          <div className="p-4">
+          <div className="p-4 text-sm text-gray-500">
             <h3 className="mb-2 text-lg font-bold">{item.name}</h3>
-            <p className="text-gray-700">{item.type}</p>
-            <p className="text-gray-700">{item.size}</p>
+            <p className="text-gray-700">ID: {item.id}</p>
+            <p className="text-gray-700">Created At: {item.createdAt}</p>
+            <p className="text-gray-700">Updated At: {item.updatedAt}</p>
+            <p className="text-gray-700">Type: {item.type}</p>
+            <p className="text-gray-700">Size: {item.size}</p>
           </div>
         </div>
       ))}

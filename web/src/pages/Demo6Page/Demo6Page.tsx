@@ -19,20 +19,25 @@ const DEMO6_MUTATION = gql`
 `
 
 const Demo6Page = () => {
-  const [demo6, { loading, error }] = useUploadsMutation(DEMO6_MUTATION)
+  const [demo6, { loading, error }] = useUploadsMutation(DEMO6_MUTATION, {
+    onCompleted: (data) => {
+      console.log('Files uploaded:', data.demo6.images)
+      toast.success(`${data.demo6.images.length} files uploaded successfully!`)
+      navigate(routes.demo6Images())
+    },
+    onError: (error) => {
+      console.error('Error uploading files:', error)
+      toast.error(`Error uploading files: ${error.message}`)
+    },
+  })
 
   const onSubmit = async (data) => {
     console.log('data', data)
     try {
-      const result = await demo6({ variables: { input: data } })
-      console.log('Files uploaded:', result.data.demo6.images)
-      toast.success(
-        `${result.data.demo5.images.length} files uploaded successfully!`
-      )
-      navigate(routes.demo6Images())
+      await demo6({ variables: { input: data } })
     } catch (error) {
-      console.error('Error uploading files:', error)
-      toast.error(`Error uploading files: ${error.message}`)
+      // This catch block is now optional, as errors are handled in onError
+      console.error('Unexpected error:', error)
     }
   }
 

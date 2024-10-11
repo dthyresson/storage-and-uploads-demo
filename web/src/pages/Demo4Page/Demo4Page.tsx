@@ -20,21 +20,26 @@ const DEMO4_MUTATION = gql`
 `
 
 const Demo4Page = () => {
-  const [demo4, { loading, error }] = useMutation(DEMO4_MUTATION)
   const [result, setResult] = useState(null)
+
+  const [demo4, { loading }] = useMutation(DEMO4_MUTATION, {
+    onCompleted: (data) => {
+      console.log('Files uploaded:', data.demo4.images)
+      toast.success(`${data.demo4.images.length} files uploaded successfully!`)
+      setResult(data.demo4)
+    },
+    onError: (error) => {
+      console.error('Error uploading files:', error)
+      toast.error(`Error uploading files: ${error.message}`)
+    },
+  })
 
   const onSubmit = async (data) => {
     console.log('data', data)
     try {
-      const result = await demo4({ variables: { input: data } })
-      console.log('Files uploaded:', result.data.demo4.images)
-      toast.success(
-        `${result.data.demo4.images.length} files uploaded successfully!`
-      )
-      setResult(result.data.demo4)
+      await demo4({ variables: { input: data } })
     } catch (error) {
-      console.error('Error uploading files:', error)
-      toast.error(`Error uploading files: ${error.message}`)
+      console.error('Unexpected error:', error)
     }
   }
 
@@ -76,7 +81,6 @@ const Demo4Page = () => {
           </Form>
         </div>
 
-        {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
         {result && (
           <div className="rounded bg-white px-8 pb-8 pt-6 shadow-md">
             <h2 className="mb-4 text-2xl font-bold">Uploaded Images</h2>
