@@ -5,8 +5,8 @@ import type {
 } from '@redwoodjs/web'
 
 export const QUERY = gql`
-  query Demo6AttachmentsQuery {
-    demo6Attachments {
+  query Demo7AttachmentsQuery {
+    demo7Attachments {
       id
       createdAt
       updatedAt
@@ -25,10 +25,10 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ demo6Attachments }) => {
+export const Success = ({ demo7Attachments }) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {demo6Attachments.map((attachment) => (
+      {demo7Attachments.map((attachment) => (
         <div
           key={attachment.id}
           className="overflow-hidden rounded-lg border shadow-md"

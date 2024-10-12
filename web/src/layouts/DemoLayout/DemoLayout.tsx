@@ -5,7 +5,7 @@ type DemoLayoutProps = {
 }
 
 const DemoLayout = ({ children }: DemoLayoutProps) => {
-  const demoCount = 6 // Set the number of demo pages here
+  const demoCount = 7 // Set the number of demo pages here
 
   return (
     <div className="flex min-h-screen flex-col">

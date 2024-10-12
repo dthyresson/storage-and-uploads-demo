@@ -52,6 +52,11 @@ const HomePage = () => {
               description:
                 'Uploads a file and returns the file metadata and a Prisma reference to the file.',
             },
+            {
+              route: routes.demo7Attachments(),
+              title: 'Demo 7: Uploaded Images or Documents to S3',
+              description: 'Uploads images or documents to S3.',
+            },
           ].map((demo, index) => (
             <li
               key={index}
