@@ -7,6 +7,56 @@ import { db } from 'src/lib/db'
 import { logger } from 'src/lib/logger'
 import { storage } from 'src/lib/storage'
 
+const firstNames = [
+  'John',
+  'Jane',
+  'Michael',
+  'Emily',
+  'David',
+  'Sarah',
+  'Robert',
+  'Lisa',
+  'William',
+  'Emma',
+]
+const lastNames = [
+  'Smith',
+  'Johnson',
+  'Brown',
+  'Davis',
+  'Wilson',
+  'Taylor',
+  'Anderson',
+  'Thomas',
+  'Jackson',
+  'White',
+]
+const suffixes = [
+  'LLC',
+  'Inc.',
+  'Co.',
+  'Corp.',
+  'Ltd.',
+  '& Sons',
+  'Associates',
+  'Enterprises',
+  'Group',
+  'Partners',
+]
+
+const products = [
+  'Dragon Taming',
+  'Unicorn Grooming',
+  'Cloud Sculpting',
+  'Time Travel Tours',
+  'Mermaid Singing Lessons',
+  'Invisible Ink Manufacturing',
+  'Teleportation Device Repair',
+  'Fairy Dust Collection',
+  'Goblin Negotiation Services',
+  'Interdimensional Cable Installation',
+]
+
 const generateRandomInvoice = (): Omit<
   Invoice,
   'pdf' | 'createdAt' | 'updatedAt' | 'id'
@@ -16,14 +66,33 @@ const generateRandomInvoice = (): Omit<
     now.getTime() + Math.random() * 30 * 24 * 60 * 60 * 1000
   ) // Random due date within 30 days
 
+  const firstName = firstNames[Math.floor(Math.random() * firstNames.length)]
+  const lastName = lastNames[Math.floor(Math.random() * lastNames.length)]
+  const suffix = suffixes[Math.floor(Math.random() * suffixes.length)]
+
+  const selectedProducts = shuffleArray(products).slice(
+    0,
+    Math.floor(Math.random() * 3) + 3
+  )
+  const productList = selectedProducts.join(', ')
+
   return {
     invoiceId: `INV-${randomUUID().slice(0, 8)}`,
-    customer: `Customer-${Math.floor(Math.random() * 1000)}`,
+    customer: `${firstName} ${lastName} ${suffix}`,
     amount: Math.floor(Math.random() * 10000) + 100, // Random amount between 100 and 10099
     dueOn: dueDate,
     invoicedOn: now,
-    memo: `Invoice for services rendered - ${now.toLocaleDateString()}`,
+    memo: `Invoice for services rendered: ${productList} - ${now.toLocaleDateString()}`,
   }
+}
+
+// Helper function to shuffle array
+function shuffleArray<T>(array: T[]): T[] {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
 }
 
 export const invoices: QueryResolvers['invoices'] = () => {
@@ -67,7 +136,7 @@ export const generateInvoicePdf = async (
     .moveDown()
 
   doc.text(`Memo: ${data.memo}`).moveDown()
-  doc.text(`Amount: $${data.amount}`).moveDown()
+  doc.text(`Amount: $${data.amount.toFixed(2)}`).moveDown()
 
   // Return a Promise that resolves with the PDF buffer
   return new Promise((resolve) => {
