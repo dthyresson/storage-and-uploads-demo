@@ -55,7 +55,7 @@ const Demo9Page = () => {
     CREATE_PROFILE_MUTATION,
     {
       onCompleted: () => {
-        toast.success('Profile updated successfully')
+        toast.success('Profile created successfully')
         refetch()
       },
       onError: (error) => {

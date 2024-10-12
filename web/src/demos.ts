@@ -3,30 +3,30 @@ import { routes } from '@redwoodjs/router'
 export const demos = [
   {
     route: () => routes.demo1(),
-    title: 'Demo 1: File Upload and Validation',
+    title: 'Demo 1: Basic File Upload',
     description:
-      'Handles file uploads, validates input, and returns file metadata.',
+      'Upload an image using GraphQL and returns the file metadata (type, size, name).',
     tags: ['uploads'],
   },
   {
     route: () => routes.demo2(),
-    title: 'Demo 2: Content Transformation and Storage',
+    title: 'Demo 2: Store text in filesystem as data',
     description:
-      'Transforms input content to uppercase and stores it using a storage service as data.',
+      'Transforms input content to uppercase and stores it in the filesystem as data.',
     tags: ['storage', 'filesystem'],
   },
   {
     route: () => routes.demo3(),
-    title: 'Demo 3: Content Transformation and File Storage',
+    title: 'Demo 3: Store text in filesystem as a file',
     description:
-      'Transforms input content to uppercase and stores it using a storage service as a file.',
+      'Transforms input content to uppercase and stores it in the filesystem as a file.',
     tags: ['storage', 'filesystem'],
   },
   {
     route: () => routes.demo4(),
     title: 'Demo 4: Multiple File Uploads',
     description:
-      'Uploads multiple images files and returns their metadata and a url to the image for use in an image tag.',
+      'Uploads multiple images files and returns their metadata and a url to the image for use in an image tag. No file validation is done. That means you can upload any kind of file, any number of files, and any size file.',
     tags: ['uploads', 'storage', 'multiple', 'filesystem'],
   },
   {
@@ -48,7 +48,7 @@ export const demos = [
     title:
       'Demo 6: File Uploads with Storage, Prisma Reference, and Upload Token',
     description:
-      'Uploads a file and returns the file metadata and a Prisma reference to the file.',
+      'Uploads a file and returns the file metadata and a Prisma reference to the file. Now a token is used to validate the file type, size, and number of files. You can upload image or documents. And since the data returned is a dataUri, previews of images or PDF are possible.',
     tags: [
       'uploads',
       'storage',
@@ -79,7 +79,7 @@ export const demos = [
     route: () => routes.demo8(),
     title: 'Demo 8: File Uploads with Storage, Prisma Reference, and Variants',
     description:
-      'Uploads a file and transforms it to a thumbnail and returns the file metadata and Prisma references to the original and thumbnail.',
+      'Uploads a file and transforms it to a thumbnail and returns the file metadata and Prisma references to the original, thumbnails (small, medium, large) and tinted/monochrome variants.',
     tags: [
       'uploads',
       'storage',
@@ -92,7 +92,8 @@ export const demos = [
   {
     route: () => routes.demo9(),
     title: 'Demo 9: Profile with Avatar',
-    description: 'Creates a profile with an avatar of different sizes.',
+    description:
+      'Creates a profile with an avatar of different sizes. Shows how a Profile model can have attachments (avatars) with different variants and how to query them.',
     tags: ['uploads', 'storage', 'database', 'filesystem', 'variants'],
   },
 ]
