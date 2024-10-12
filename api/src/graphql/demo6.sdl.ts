@@ -6,7 +6,7 @@ export const schema = gql`
     name: String!
     type: String!
     size: Int!
-    url: String! @withStorage(format: SIGNED_URL)
+    url: String! @withStorage(format: DATA_URI)
   }
 
   type Demo6 {

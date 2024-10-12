@@ -43,7 +43,10 @@ const Demo6Page = () => {
 
   return (
     <>
-      <Metadata title="Demo 5" description="Demo 5 page" />
+      <Metadata
+        title="Demo 6: File Uploads with Storage, Prisma Reference, and Upload Token Validation"
+        description="Demo 6 page"
+      />
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
       <div className="container mx-auto px-4 py-8">
@@ -52,8 +55,8 @@ const Demo6Page = () => {
           Validation
         </h1>
         <p className="mb-6 text-gray-600">
-          Upload multiple files to see the metadata and images stored in the
-          database. Max 3 files, 1MB each.
+          Upload multiple images or documents to see the metadata and files
+          stored in the database. Max 3 files, 1MB each.
         </p>
 
         <div className="mb-8 rounded bg-white px-8 pb-8 pt-6 shadow-md">
@@ -87,7 +90,7 @@ const Demo6Page = () => {
           to={routes.demo6Images()}
           className="font-semibold text-blue-500 hover:text-blue-700"
         >
-          View Images
+          View Uploaded Images or Documents
         </Link>
       </div>
     </>

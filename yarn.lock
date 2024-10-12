@@ -4510,7 +4510,7 @@ __metadata:
 
 "@redwoodjs/cli@file:./tarballs/redwoodjs-cli.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/cli@file:./tarballs/redwoodjs-cli.tgz#./tarballs/redwoodjs-cli.tgz::hash=c576c5&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/cli@file:./tarballs/redwoodjs-cli.tgz#./tarballs/redwoodjs-cli.tgz::hash=ded69a&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@babel/runtime-corejs3": "npm:7.25.0"
     "@opentelemetry/api": "npm:1.8.0"
@@ -4570,7 +4570,7 @@ __metadata:
     redwood: ./dist/index.js
     rw: ./dist/index.js
     rwfw: ./dist/rwfw.js
-  checksum: 10c0/66e547425993ff367e88c350ff8bddd087f6e81e9d6c7b506b32f7881fb5a3bb7a98da11607095921f89b82031b401ac0f830a5261a1e2c3bbeb135f61631336
+  checksum: 10c0/ec8ed85c470ef26ad069271f63a3679a1e6fb88c4f31c2ef7604f74b5c7f9a5da77a6844179460191e8fd9be02dd58453a732d148bc77e1b42cd656baad67f71
   languageName: node
   linkType: hard
 
@@ -4936,12 +4936,12 @@ __metadata:
 
 "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz#./tarballs/redwoodjs-uploads-graphql.tgz::hash=1a70e3&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz#./tarballs/redwoodjs-uploads-graphql.tgz::hash=7fcf3d&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@redwoodjs/context": "npm:8.0.0"
     "@redwoodjs/graphql-server": "npm:8.0.0"
     jsonwebtoken: "npm:9.0.2"
-  checksum: 10c0/2043806df046cdc6cbf91f40c3c182b1c27ca4bac8dd2a73c12dc0ec9f600c4611abe1f9a7324a1d3ea355eea6e298f8c08309a41a0cffb32bc214bdf9d84e4d
+  checksum: 10c0/2b1ee32af1caade40adce1ea9d87672e9026303bdb304696e8309eae46a00f597a577b68c64d76827c2a9f20430ea996ce3c7f598ee8f9bd58e682a0fc9484d8
   languageName: node
   linkType: hard
 
