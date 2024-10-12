@@ -6,7 +6,15 @@ This is a demo of how to use RedwoodJS to upload files and store them in the fil
 
 See the [Demos](./web/src/demos.ts) file and the Home Page for more information about each demo.
 
-## Quick Start
+## Setup
+
+These demos use filesystem and S3 storage.
+
+To use the S3 storage, you'll need to set up an account with AWS or Tigris and add the appropriate credentials to the `.env` file.
+
+See the example `.env.example` file for the required variables.
+
+### Quick Start
 
 Start by installing dependencies:
 
@@ -27,6 +35,7 @@ yarn rw dev
 ```
 
 Your browser should automatically open to [http://localhost:8910](http://localhost:8910) where you'll see the Welcome Page, which links out to many great resources.
+
 
 ## Quick Links
 
