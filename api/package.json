@@ -9,6 +9,10 @@
     "@redwoodjs/storage-adapter-s3": "8.4.0",
     "@redwoodjs/storage-core": "8.4.0",
     "@redwoodjs/uploads-graphql": "8.0.0",
+    "pdfkit": "^0.15.0",
     "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/pdfkit": "^0.13.5"
   }
 }

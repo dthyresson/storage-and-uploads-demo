@@ -31,6 +31,19 @@ model Avatar {
   profileId String?
 }
 
+model Invoice {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  invoiceId  String
+  customer   String
+  amount     Int
+  dueOn      DateTime
+  invoicedOn DateTime
+  memo       String
+  pdf        String
+}
+
 model Attachment {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())

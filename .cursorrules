@@ -51,6 +51,13 @@ For example, a service file is named `cars.ts` and so the matching GraphQL mutat
 
 Note that not all sdl types will has Prisma models. And not all Prisma models will have GraphQL types.
 
+## Workspaces and Yarn
+
+* Yarn is used as the package manager.
+* Uses workspaces to manage dependencies between the frontend (web) and backend (api).
+* When insyalling packages use `yarn workspace <workspace> add <package>`.
+* When running Redwood commands, you should run them from the root of the project and use `yarn rw <command>`.
+
 # API Side
 
 ## GraphQL directory

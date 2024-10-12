@@ -96,4 +96,10 @@ export const demos = [
       'Creates a profile with an avatar of different sizes. Shows how a Profile model can have attachments (avatars) with different variants and how to query them.',
     tags: ['uploads', 'storage', 'database', 'filesystem', 'variants'],
   },
+  {
+    route: () => routes.demo10(),
+    title: 'Demo 10: Invoice with PDF',
+    description: 'Creates an invoice with an attached PDF.',
+    tags: ['storage', 'database', 'filesystem', 'dataUri'],
+  },
 ]
