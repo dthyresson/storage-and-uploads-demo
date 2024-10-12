@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
 import { useMutation } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
+import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
 
@@ -43,7 +43,6 @@ const Demo1Page = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Toaster />
       <Demo index={1} />
       <Form onSubmit={onSubmit} className="mb-8">
         <div className="mb-4">

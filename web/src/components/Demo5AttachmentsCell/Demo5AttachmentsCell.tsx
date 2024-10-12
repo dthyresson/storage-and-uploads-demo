@@ -43,6 +43,7 @@ export const Success = ({ demo5Attachments }) => {
             <p className="text-gray-700">ID: {attachment.id}</p>
             <p className="text-gray-700">Created At: {attachment.createdAt}</p>
             <p className="text-gray-700">Updated At: {attachment.updatedAt}</p>
+            <p className="text-gray-700">Reference: {attachment.reference}</p>
             <p className="text-gray-700">Type: {attachment.type}</p>
             <p className="text-gray-700">Size: {attachment.size}</p>
           </div>

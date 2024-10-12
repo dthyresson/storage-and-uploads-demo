@@ -27,21 +27,21 @@ const storeFiles = async <T>(
 export const demo7: MutationResolvers['demo7'] = async ({ input }) => {
   logger.debug({ fileCount: input.attachments.length }, 'demo7')
 
-  const attachments = []
-
-  await storeFiles(input.attachments, async (file, reference) => {
-    const createdAttachment = await db.attachment.create({
-      data: {
-        demo: 'demo7',
-        name: file.name,
-        type: file.type,
-        size: file.size,
-        reference,
-      },
-    })
-    attachments.push(createdAttachment)
-    return attachments
-  })
+  const attachments = await storeFiles(
+    input.attachments,
+    async (file, reference) => {
+      const createdAttachment = await db.attachment.create({
+        data: {
+          demo: 'demo7',
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          reference,
+        },
+      })
+      return createdAttachment
+    }
+  )
 
   return { attachments }
 }

@@ -1,7 +1,9 @@
 import { Link } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
+import { TagList } from 'src/components/TagList/TagList'
 import { demos } from 'src/demos'
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-12 sm:px-6 lg:px-8">
@@ -21,7 +23,7 @@ const HomePage = () => {
               className="overflow-hidden rounded-lg bg-white shadow"
             >
               <Link
-                to={demo.route}
+                to={demo.route()}
                 className="block transition duration-150 ease-in-out hover:bg-gray-50"
               >
                 <div className="px-4 py-5 sm:p-6">
@@ -31,6 +33,9 @@ const HomePage = () => {
                   <p className="mt-2 text-sm text-gray-500">
                     {demo.description}
                   </p>
+                  <div className="mt-4">
+                    <TagList tags={demo.tags} />
+                  </div>
                 </div>
               </Link>
             </li>

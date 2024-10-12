@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Form, TextField, Submit } from '@redwoodjs/forms'
 import { useMutation } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
+import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
 
@@ -37,8 +37,6 @@ const Demo2Page = () => {
     <>
       <div className="container mx-auto px-4 py-8">
         <Demo index={2} />
-
-        <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
         <div className="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md">
           <Form onSubmit={onSubmit} className="space-y-4">

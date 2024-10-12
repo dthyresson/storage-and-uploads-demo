@@ -1,7 +1,7 @@
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { useUploadsMutation } from '@redwoodjs/uploads-web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
+import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
 
@@ -46,8 +46,6 @@ const Demo7Page = () => {
 
   return (
     <>
-      <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-
       <div className="container mx-auto px-4 py-8">
         <Demo index={7} />
 
