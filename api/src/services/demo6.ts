@@ -1,25 +1,47 @@
-import { Demo6Image, MutationResolvers, QueryResolvers } from 'types/graphql'
+import { MutationResolvers, QueryResolvers } from 'types/graphql'
 
 import { db } from 'src/lib/db'
 import { logger } from 'src/lib/logger'
 import { storage } from 'src/lib/storage'
 
-export const demo6: MutationResolvers['demo5'] = async ({ input }) => {
-  logger.debug({ fileCount: input.images.length }, 'demo5')
+// move to storage? or adapter?
+const storeFile = async <T>(
+  file: File,
+  callback: (file: File, reference: string) => Promise<T>
+): Promise<T> => {
+  try {
+    const reference = await storage.writeFile(file)
+    return await callback(file, reference)
+  } catch (error) {
+    logger.error({ error, file }, 'Error persisting file')
+    throw error
+  }
+}
+
+const storeFiles = async <T>(
+  files: File[],
+  callback: (file: File, reference: string) => Promise<T>
+): Promise<T[]> => {
+  return await Promise.all(files.map((file) => storeFile(file, callback)))
+}
+
+export const demo6: MutationResolvers['demo6'] = async ({ input }) => {
+  logger.debug({ fileCount: input.images.length }, 'demo6')
 
   const images = []
 
-  for (const image of input.images) {
-    const processedImage = {
-      name: image.name,
-      type: image.type,
-      size: image.size,
-      url: await storage.writeFile(image),
-    } as Demo6Image
-
-    const createdImage = await db.demo6Image.create({ data: processedImage })
+  await storeFiles(input.images, async (file, reference) => {
+    const createdImage = await db.demo6Image.create({
+      data: {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        url: reference,
+      },
+    })
     images.push(createdImage)
-  }
+    return images
+  })
 
   return { images }
 }
