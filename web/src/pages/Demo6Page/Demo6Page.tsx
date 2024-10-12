@@ -7,12 +7,12 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 const DEMO6_MUTATION = gql`
   mutation Demo6($input: Demo6Input!) {
     demo6(input: $input) {
-      images {
+      attachments {
         id
         name
         type
         size
-        url
+        reference
       }
     }
   }
@@ -21,9 +21,11 @@ const DEMO6_MUTATION = gql`
 const Demo6Page = () => {
   const [demo6, { loading, error }] = useUploadsMutation(DEMO6_MUTATION, {
     onCompleted: (data) => {
-      console.log('Files uploaded:', data.demo6.images)
-      toast.success(`${data.demo6.images.length} files uploaded successfully!`)
-      navigate(routes.demo6Images())
+      console.log('Files uploaded:', data.demo6.attachments)
+      toast.success(
+        `${data.demo6.attachments.length} files uploaded successfully!`
+      )
+      navigate(routes.demo6Attachments())
     },
     onError: (error) => {
       console.error('Error uploading files:', error)
@@ -63,7 +65,7 @@ const Demo6Page = () => {
           <Form onSubmit={onSubmit} className="space-y-4">
             <div>
               <FileField
-                name="images"
+                name="attachments"
                 multiple={true}
                 validation={{ required: true }}
                 className="block w-full text-sm text-gray-500
@@ -73,7 +75,10 @@ const Demo6Page = () => {
                   file:font-semibold file:text-blue-700
                   hover:file:bg-blue-100"
               />
-              <FieldError name="images" className="mt-1 text-sm text-red-600" />
+              <FieldError
+                name="attachments"
+                className="mt-1 text-sm text-red-600"
+              />
             </div>
             <Submit
               disabled={loading}
@@ -87,7 +92,7 @@ const Demo6Page = () => {
         {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
 
         <Link
-          to={routes.demo6Images()}
+          to={routes.demo6Attachments()}
           className="font-semibold text-blue-500 hover:text-blue-700"
         >
           View Uploaded Images or Documents

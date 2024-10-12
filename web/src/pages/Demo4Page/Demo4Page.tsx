@@ -8,12 +8,12 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 const DEMO4_MUTATION = gql`
   mutation Demo4($input: Demo4Input!) {
     demo4(input: $input) {
-      images {
+      attachments {
         id
         name
         type
         size
-        url
+        reference
       }
     }
   }
@@ -24,8 +24,10 @@ const Demo4Page = () => {
 
   const [demo4, { loading }] = useMutation(DEMO4_MUTATION, {
     onCompleted: (data) => {
-      console.log('Files uploaded:', data.demo4.images)
-      toast.success(`${data.demo4.images.length} files uploaded successfully!`)
+      console.log('Files uploaded:', data.demo4.attachments)
+      toast.success(
+        `${data.demo4.attachments.length} files uploaded successfully!`
+      )
       setResult(data.demo4)
     },
     onError: (error) => {
@@ -60,7 +62,7 @@ const Demo4Page = () => {
           <Form onSubmit={onSubmit} className="space-y-4">
             <div>
               <FileField
-                name="images"
+                name="attachments"
                 multiple={true}
                 validation={{ required: true }}
                 className="block w-full text-sm text-gray-500
@@ -70,7 +72,10 @@ const Demo4Page = () => {
                   file:font-semibold file:text-blue-700
                   hover:file:bg-blue-100"
               />
-              <FieldError name="images" className="mt-1 text-sm text-red-600" />
+              <FieldError
+                name="attachments"
+                className="mt-1 text-sm text-red-600"
+              />
             </div>
             <Submit
               disabled={loading}
@@ -85,19 +90,19 @@ const Demo4Page = () => {
           <div className="rounded bg-white px-8 pb-8 pt-6 shadow-md">
             <h2 className="mb-4 text-2xl font-bold">Uploaded Images</h2>
             <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-              {result.images.map((image) => (
-                <li key={image.id} className="rounded-lg bg-gray-100 p-4">
-                  <h3 className="mb-2 font-semibold">{image.name}</h3>
+              {result.attachments.map((attachment) => (
+                <li key={attachment.id} className="rounded-lg bg-gray-100 p-4">
+                  <h3 className="mb-2 font-semibold">{attachment.name}</h3>
                   <img
-                    src={image.url}
-                    alt={image.name}
+                    src={attachment.reference}
+                    alt={attachment.name}
                     className="mb-2 h-48 w-full rounded-lg object-cover"
                   />
                   <p className="text-sm text-gray-600">
-                    <strong>Type:</strong> {image.type}
+                    <strong>Type:</strong> {attachment.type}
                   </p>
                   <p className="text-sm text-gray-600">
-                    <strong>Size:</strong> {image.size} bytes
+                    <strong>Size:</strong> {attachment.size} bytes
                   </p>
                 </li>
               ))}

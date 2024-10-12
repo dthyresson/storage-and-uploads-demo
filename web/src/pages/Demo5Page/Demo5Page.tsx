@@ -7,12 +7,12 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 const DEMO5_MUTATION = gql`
   mutation Demo5($input: Demo5Input!) {
     demo5(input: $input) {
-      images {
+      attachments {
         id
         name
         type
         size
-        url
+        reference
       }
     }
   }
@@ -21,9 +21,11 @@ const DEMO5_MUTATION = gql`
 const Demo5Page = () => {
   const [demo5, { loading, error }] = useMutation(DEMO5_MUTATION, {
     onCompleted: (data) => {
-      console.log('Files uploaded:', data.demo5.images)
-      toast.success(`${data.demo5.images.length} files uploaded successfully!`)
-      navigate(routes.demo5Images())
+      console.log('Files uploaded:', data.demo5.attachments)
+      toast.success(
+        `${data.demo5.attachments.length} files uploaded successfully!`
+      )
+      navigate(routes.demo5Attachments())
     },
     onError: (error) => {
       console.error('Error uploading files:', error)
@@ -54,7 +56,7 @@ const Demo5Page = () => {
           <Form onSubmit={onSubmit} className="space-y-4">
             <div>
               <FileField
-                name="images"
+                name="attachments"
                 multiple={true}
                 validation={{ required: true }}
                 className="block w-full text-sm text-gray-500
@@ -78,7 +80,7 @@ const Demo5Page = () => {
         {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
 
         <Link
-          to={routes.demo5Images()}
+          to={routes.demo5Attachments()}
           className="font-semibold text-blue-500 hover:text-blue-700"
         >
           View Images

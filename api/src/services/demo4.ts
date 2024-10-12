@@ -1,23 +1,23 @@
-import { Demo4Image, MutationResolvers } from 'types/graphql'
+import { MutationResolvers } from 'types/graphql'
 
 import { logger } from 'src/lib/logger'
 import { storage } from 'src/lib/storage'
 
 export const demo4: MutationResolvers['demo4'] = async ({ input }) => {
-  logger.debug({ fileCount: input.images.length }, 'demo4')
+  logger.debug({ fileCount: input.attachments.length }, 'demo4')
 
-  const images = [] as Demo4Image[]
+  const attachments = []
 
-  for (const image of input.images) {
-    const processedImage = {
+  for (const attachment of input.attachments) {
+    const processedAttachment = {
       id: Math.random().toString(36).substring(2, 10),
-      name: image.name,
-      type: image.type,
-      size: image.size,
-      url: await storage.writeFile(image),
+      name: attachment.name,
+      type: attachment.type,
+      size: attachment.size,
+      reference: await storage.writeFile(attachment),
     }
-    images.push(processedImage)
+    attachments.push(processedAttachment)
   }
 
-  return { images }
+  return { attachments }
 }

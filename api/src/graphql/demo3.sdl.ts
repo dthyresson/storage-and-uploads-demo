@@ -3,7 +3,7 @@ export const schema = gql`
     id: ID!
     content: String!
     transformedContent: String!
-    url: String! @withStorage
+    reference: String! @withStorage
   }
 
   input Demo3Input {

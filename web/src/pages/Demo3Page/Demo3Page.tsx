@@ -11,7 +11,7 @@ const DEMO3_MUTATION = gql`
       id
       content
       transformedContent
-      url
+      reference
     }
   }
 `
@@ -82,7 +82,7 @@ const Demo3Page = () => {
               <p>
                 <span className="font-semibold">Link to Stored Content:</span>{' '}
                 <a
-                  href={result.url}
+                  href={result.reference}
                   target="_blank"
                   rel="noreferrer"
                   className="text-blue-500 underline hover:text-blue-700"

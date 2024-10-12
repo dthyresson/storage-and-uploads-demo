@@ -26,26 +26,31 @@ const storeFiles = async <T>(
 }
 
 export const demo6: MutationResolvers['demo6'] = async ({ input }) => {
-  logger.debug({ fileCount: input.images.length }, 'demo6')
+  logger.debug({ fileCount: input.attachments.length }, 'demo6')
 
-  const images = []
+  const attachments = []
 
-  await storeFiles(input.images, async (file, reference) => {
-    const createdImage = await db.demo6Image.create({
+  await storeFiles(input.attachments, async (file, reference) => {
+    const createdAttachment = await db.attachment.create({
       data: {
+        demo: 'demo6',
         name: file.name,
         type: file.type,
         size: file.size,
-        url: reference,
+        reference,
       },
     })
-    images.push(createdImage)
-    return images
+    attachments.push(createdAttachment)
+    return attachments
   })
 
-  return { images }
+  return { attachments }
 }
 
-export const demo6Images: QueryResolvers['demo6Images'] = async () => {
-  return await db.demo6Image.findMany({ orderBy: { createdAt: 'desc' } })
-}
+export const demo6Attachments: QueryResolvers['demo6Attachments'] =
+  async () => {
+    return await db.attachment.findMany({
+      where: { demo: 'demo6' },
+      orderBy: { createdAt: 'desc' },
+    })
+  }

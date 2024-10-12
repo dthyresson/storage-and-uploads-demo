@@ -5,12 +5,12 @@ import type {
 } from '@redwoodjs/web'
 
 export const QUERY = gql`
-  query Demo6ImagesQuery {
-    demo6Images {
+  query Demo5AttachmentsQuery {
+    demo5Attachments {
       id
       createdAt
       updatedAt
-      url
+      reference
       name
       type
       size
@@ -25,26 +25,26 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ demo6Images }) => {
+export const Success = ({ demo5Attachments }) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {demo6Images.map((item) => (
+      {demo5Attachments.map((attachment) => (
         <div
-          key={item.id}
+          key={attachment.id}
           className="overflow-hidden rounded-lg border shadow-md"
         >
           <img
-            src={item.url}
-            alt={item.name}
+            src={attachment.reference}
+            alt={attachment.name}
             className="h-48 w-full object-cover"
           />
           <div className="p-4 text-sm text-gray-500">
-            <h3 className="mb-2 text-lg font-bold">{item.name}</h3>
-            <p className="text-gray-700">ID: {item.id}</p>
-            <p className="text-gray-700">Created At: {item.createdAt}</p>
-            <p className="text-gray-700">Updated At: {item.updatedAt}</p>
-            <p className="text-gray-700">Type: {item.type}</p>
-            <p className="text-gray-700">Size: {item.size}</p>
+            <h3 className="mb-2 text-lg font-bold">{attachment.name}</h3>
+            <p className="text-gray-700">ID: {attachment.id}</p>
+            <p className="text-gray-700">Created At: {attachment.createdAt}</p>
+            <p className="text-gray-700">Updated At: {attachment.updatedAt}</p>
+            <p className="text-gray-700">Type: {attachment.type}</p>
+            <p className="text-gray-700">Size: {attachment.size}</p>
           </div>
         </div>
       ))}

@@ -1,12 +1,15 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
-import Demo5ImagesCell from 'src/components/Demo5ImagesCell'
+import Demo5AttachmentsCell from 'src/components/Demo5AttachmentsCell'
 
-const Demo5ImagesPage = () => {
+const Demo5AttachmentsPage = () => {
   return (
     <>
-      <Metadata title="Demo 5 Images" description="Demo 5 Images page" />
+      <Metadata
+        title="Demo 5 Attachments"
+        description="Demo 5 Attachments page"
+      />
 
       <div className="container mx-auto px-4 py-8">
         <h1 className="mb-6 text-3xl font-bold">Demo 5: Uploaded Images</h1>
@@ -15,7 +18,7 @@ const Demo5ImagesPage = () => {
         </p>
 
         <div className="mb-8 rounded bg-white px-8 pb-8 pt-6 shadow-md">
-          <Demo5ImagesCell />
+          <Demo5AttachmentsCell />
         </div>
 
         <Link
@@ -29,4 +32,4 @@ const Demo5ImagesPage = () => {
   )
 }
 
-export default Demo5ImagesPage
+export default Demo5AttachmentsPage

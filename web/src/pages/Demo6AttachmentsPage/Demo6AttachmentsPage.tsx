@@ -1,9 +1,9 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
-import Demo6ImagesCell from 'src/components/Demo6ImagesCell'
+import Demo6AttachmentsCell from 'src/components/Demo6AttachmentsCell'
 
-const Demo6ImagesPage = () => {
+const Demo6AttachmentsPage = () => {
   return (
     <>
       <Metadata
@@ -21,7 +21,7 @@ const Demo6ImagesPage = () => {
         </p>
 
         <div className="mb-8 rounded bg-white px-8 pb-8 pt-6 shadow-md">
-          <Demo6ImagesCell />
+          <Demo6AttachmentsCell />
         </div>
 
         <Link
@@ -35,4 +35,4 @@ const Demo6ImagesPage = () => {
   )
 }
 
-export default Demo6ImagesPage
+export default Demo6AttachmentsPage

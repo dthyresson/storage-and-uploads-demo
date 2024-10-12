@@ -1,20 +1,20 @@
 export const schema = gql`
-  # Demo1 Uploads a file and returns the file metadata
-  type Demo4Image {
+  type Demo4Attachment implements Attachment {
     id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
     name: String!
     type: String!
     size: Int!
-    url: String! @withStorage
+    reference: String! @withStorage
   }
-
   type Demo4 {
-    images: [Demo4Image!]!
+    attachments: [Demo4Attachment!]!
   }
 
   # The web will send a collection of files, so we need to accept a list of files
   input Demo4Input {
-    images: [File!]!
+    attachments: [File!]!
   }
 
   type Mutation {
