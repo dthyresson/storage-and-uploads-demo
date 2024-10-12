@@ -1,8 +1,9 @@
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { useUploadsMutation } from '@redwoodjs/uploads-web'
-import { Metadata } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
+import Demo from 'src/components/Demo/Demo'
 
 const DEMO7_MUTATION = gql`
   mutation Demo7($input: Demo7Input!) {
@@ -45,22 +46,10 @@ const Demo7Page = () => {
 
   return (
     <>
-      <Metadata
-        title="Demo 7: File Uploads with Storage, Prisma Reference, and Upload Token Validation to S3"
-        description="Demo 7 page"
-      />
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
       <div className="container mx-auto px-4 py-8">
-        <h1 className="mb-6 text-3xl font-bold">
-          Demo 7: File Uploads with Storage, Prisma Reference, and Upload Token
-          Validation to S3
-        </h1>
-        <p className="mb-6 text-gray-600">
-          Upload multiple images or documents to see the metadata and files
-          stored in the database. Max 3 files, 1MB each, and only JPEGs, PNGs,
-          PDFs, and TXTs are supported to S3.
-        </p>
+        <Demo index={7} />
 
         <div className="mb-8 rounded bg-white px-8 pb-8 pt-6 shadow-md">
           <Form onSubmit={onSubmit} className="space-y-4">

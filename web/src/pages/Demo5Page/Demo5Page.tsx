@@ -1,8 +1,9 @@
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
-import { Metadata } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
+import Demo from 'src/components/Demo/Demo'
 
 const DEMO5_MUTATION = gql`
   mutation Demo5($input: Demo5Input!) {
@@ -40,17 +41,10 @@ const Demo5Page = () => {
 
   return (
     <>
-      <Metadata title="Demo 5" description="Demo 5 page" />
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
       <div className="container mx-auto px-4 py-8">
-        <h1 className="mb-6 text-3xl font-bold">
-          Demo 5: File Uploads with Storage and Prisma Reference
-        </h1>
-        <p className="mb-6 text-gray-600">
-          Upload multiple files to see the metadata and images stored in the
-          database
-        </p>
+        <Demo index={5} />
 
         <div className="mb-8 rounded bg-white px-8 pb-8 pt-6 shadow-md">
           <Form onSubmit={onSubmit} className="space-y-4">

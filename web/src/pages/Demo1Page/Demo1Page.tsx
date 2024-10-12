@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
-import { Metadata } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
+import Demo from 'src/components/Demo/Demo'
 
 const DEMO1_MUTATION = gql`
   mutation Demo1($input: Demo1Input!) {
@@ -42,12 +43,8 @@ const Demo1Page = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Metadata title="Demo1" description="Demo1 page" />
       <Toaster />
-
-      <h1 className="mb-4 text-3xl font-bold">Demo 1</h1>
-      <p className="mb-6 text-gray-600">Upload a file to see the metadata</p>
-
+      <Demo index={1} />
       <Form onSubmit={onSubmit} className="mb-8">
         <div className="mb-4">
           <FileField

@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
 import { Form, TextField, Submit } from '@redwoodjs/forms'
-import { Metadata } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
+import Demo from 'src/components/Demo/Demo'
 
 const DEMO3_MUTATION = gql`
   mutation Demo3Mutation($input: Demo3Input!) {
@@ -34,12 +35,8 @@ const Demo3Page = () => {
 
   return (
     <>
-      <Metadata title="Demo3" description="Demo3 page" />
-
       <div className="container mx-auto px-4 py-8">
-        <h1 className="mb-6 text-3xl font-bold">
-          Demo 3: Content Transformation and File Storage
-        </h1>
+        <Demo index={3} />
 
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 

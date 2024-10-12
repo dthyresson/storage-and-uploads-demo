@@ -1,12 +1,12 @@
 import { Link, routes } from '@redwoodjs/router'
 
+import { demos } from 'src/demos'
+
 type DemoLayoutProps = {
   children?: React.ReactNode
 }
 
 const DemoLayout = ({ children }: DemoLayoutProps) => {
-  const demoCount = 7 // Set the number of demo pages here
-
   return (
     <div className="flex min-h-screen flex-col">
       <header className="bg-gray-800 py-4 text-white">
@@ -20,10 +20,10 @@ const DemoLayout = ({ children }: DemoLayoutProps) => {
                 Home
               </Link>
             </li>
-            {[...Array(demoCount)].map((_, index) => (
+            {demos.map((demo, index) => (
               <li key={index + 1}>
                 <Link
-                  to={routes[`demo${index + 1}`]()}
+                  to={demo.route}
                   className="transition-colors hover:text-gray-300"
                 >
                   Demo {index + 1}
