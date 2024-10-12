@@ -75,4 +75,18 @@ export const demos = [
       'documents and images',
     ],
   },
+  {
+    route: () => routes.demo8(),
+    title: 'Demo 8: File Uploads with Storage, Prisma Reference, and Variants',
+    description:
+      'Uploads a file and transforms it to a thumbnail and returns the file metadata and Prisma references to the original and thumbnail.',
+    tags: [
+      'uploads',
+      'storage',
+      'database',
+      'filesystem',
+      'variants',
+      'signedUrl',
+    ],
+  },
 ]

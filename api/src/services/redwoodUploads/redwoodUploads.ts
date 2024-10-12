@@ -26,6 +26,9 @@ export const getRedwoodUploadToken: GetRedwoodUploadTokenResolver = async ({
     case 'Demo7':
       contentTypes = [...IMAGE_CONTENT_TYPES, ...DOCUMENT_CONTENT_TYPES]
       break
+    case 'Demo8':
+      contentTypes = IMAGE_CONTENT_TYPES
+      break
     default:
       contentTypes = IMAGE_CONTENT_TYPES
   }

@@ -15,6 +15,7 @@ export const demo4: MutationResolvers['demo4'] = async ({ input }) => {
       type: attachment.type,
       size: attachment.size,
       reference: await storage.writeFile(attachment),
+      variant: 'original',
     }
     attachments.push(processedAttachment)
   }

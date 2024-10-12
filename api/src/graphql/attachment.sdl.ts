@@ -7,5 +7,6 @@ export const schema = gql`
     type: String
     size: Int
     reference: String! @withStorage
+    variant: String!
   }
 `

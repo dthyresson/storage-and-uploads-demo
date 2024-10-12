@@ -1,5 +1,5 @@
 export const schema = gql`
-  type Demo4Attachment implements Attachment {
+  type Demo8Attachment implements Attachment {
     id: ID!
     createdAt: DateTime!
     updatedAt: DateTime!
@@ -9,16 +9,23 @@ export const schema = gql`
     reference: String! @withStorage
     variant: String!
   }
-  type Demo4 {
-    attachments: [Demo4Attachment!]!
+
+  type Demo8 {
+    attachments: [Demo8Attachment!]!
   }
 
   # The web will send a collection of files, so we need to accept a list of files
-  input Demo4Input {
+  input Demo8Input {
     attachments: [File!]!
   }
 
   type Mutation {
-    demo4(input: Demo4Input!): Demo4 @skipAuth
+    demo8(input: Demo8Input!): Demo8!
+      @skipAuth
+      @requireUploadToken(fields: ["attachments"], variable: "input")
+  }
+
+  type Query {
+    demo8Attachments: [Demo8Attachment!]! @skipAuth
   }
 `

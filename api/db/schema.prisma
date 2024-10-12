@@ -14,6 +14,7 @@ model Attachment {
   updatedAt DateTime @updatedAt
   demo      String
   reference String
+  variant   String   @default("original")
   name      String?
   type      String?
   size      Int?

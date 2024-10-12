@@ -1,4 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
+import { NavLink, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 
 import { demos } from 'src/demos'
@@ -16,21 +16,23 @@ const DemoLayout = ({ children }: DemoLayoutProps) => {
         <nav className="container mx-auto px-4">
           <ul className="flex space-x-4">
             <li>
-              <Link
+              <NavLink
                 to={routes.home()}
-                className="transition-colors hover:text-gray-300"
+                className="hover:text-gray-300"
+                activeClassName="text-gray-300 underline"
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             {demos.map((demo, index) => (
               <li key={index + 1}>
-                <Link
+                <NavLink
                   to={demo.route()}
-                  className="transition-colors hover:text-gray-300"
+                  className="hover:text-gray-300"
+                  activeClassName="text-gray-300 underline"
                 >
                   Demo {index + 1}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>

@@ -7,6 +7,7 @@ export const schema = gql`
     type: String!
     size: Int!
     reference: String! @withStorage
+    variant: String!
   }
   type Demo5 {
     attachments: [Demo5Attachment!]!

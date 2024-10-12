@@ -38,6 +38,7 @@ export const demo6: MutationResolvers['demo6'] = async ({ input }) => {
         type: file.type,
         size: file.size,
         reference,
+        variant: 'original',
       },
     })
     attachments.push(createdAttachment)
@@ -50,7 +51,7 @@ export const demo6: MutationResolvers['demo6'] = async ({ input }) => {
 export const demo6Attachments: QueryResolvers['demo6Attachments'] =
   async () => {
     return await db.attachment.findMany({
-      where: { demo: 'demo6' },
+      where: { demo: 'demo6', variant: 'original' },
       orderBy: { createdAt: 'desc' },
     })
   }

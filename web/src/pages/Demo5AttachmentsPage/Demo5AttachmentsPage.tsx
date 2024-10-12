@@ -1,6 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
+import Demo from 'src/components/Demo'
 import Demo5AttachmentsCell from 'src/components/Demo5AttachmentsCell'
 
 const Demo5AttachmentsPage = () => {
@@ -12,10 +13,7 @@ const Demo5AttachmentsPage = () => {
       />
 
       <div className="container mx-auto px-4 py-8">
-        <h1 className="mb-6 text-3xl font-bold">Demo 5: Uploaded Images</h1>
-        <p className="mb-6 text-gray-600">
-          View the images uploaded and stored in the database
-        </p>
+        <Demo index={5} />
 
         <div className="mb-8 rounded bg-white px-8 pb-8 pt-6 shadow-md">
           <Demo5AttachmentsCell />

@@ -7,6 +7,7 @@ export const schema = gql`
     type: String!
     size: Int!
     reference: String! @withStorage(adapter: S3)
+    variant: String!
   }
 
   type Demo7 {
