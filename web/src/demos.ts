@@ -89,4 +89,10 @@ export const demos = [
       'signedUrl',
     ],
   },
+  {
+    route: () => routes.demo9(),
+    title: 'Demo 9: Profile with Avatar',
+    description: 'Creates a profile with an avatar of different sizes.',
+    tags: ['uploads', 'storage', 'database', 'filesystem', 'variants'],
+  },
 ]

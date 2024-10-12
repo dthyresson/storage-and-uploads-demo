@@ -14,7 +14,7 @@ type AttachmentVariant =
   | 'tinted'
 
 // New functions for thumbnail and tinted versions
-const createThumbnail = async (
+export const createThumbnail = async (
   file: File,
   variant: AttachmentVariant
 ): Promise<File> => {

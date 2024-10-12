@@ -8,6 +8,29 @@ generator client {
   binaryTargets = "native"
 }
 
+model Profile {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstName String
+  lastName  String
+  avatars   Avatar[]
+}
+
+model Avatar {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  demo      String
+  reference String
+  variant   String   @default("original")
+  name      String?
+  type      String?
+  size      Int?
+  Profile   Profile? @relation(fields: [profileId], references: [id])
+  profileId String?
+}
+
 model Attachment {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
