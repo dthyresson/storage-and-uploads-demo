@@ -43,6 +43,9 @@ export default async () => {
 
     const allPosts = await db.post.findMany()
 
+    const width = 1024
+    const height = 512
+
     for (const post of allPosts) {
       const bgColor = randomColor({ luminosity: 'light' })
       const watermarkColor = randomColor({ luminosity: 'dark' })
@@ -53,24 +56,25 @@ export default async () => {
       </svg>
       `
 
+      const svgText = `
+      <svg width="${width}" height="${height}">
+        <style>
+          .title { fill: ${watermarkColor}; font-size: 48px; font-weight: bold; font-family: 'Arial', sans-serif; }
+        </style>
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="title">${post.title}</text>
+      </svg>`
+
       const image = await sharp({
         create: {
-          width: 1024,
-          height: 512,
+          width,
+          height,
           channels: 4,
           background: bgColor,
         },
       })
         .composite([
           {
-            input: {
-              text: {
-                text: post.title,
-                font: 'sans',
-                height: 400,
-                rgba: true,
-              },
-            },
+            input: Buffer.from(svgText),
             gravity: 'center',
           },
           {
