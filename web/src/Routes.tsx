@@ -6,6 +6,7 @@ const Routes = () => {
   return (
     <Router>
       <Set wrap={DemoLayout}>
+        <Route path="/demo11" page={Demo11Page} name="demo11" />
         <Route path="/demo10" page={Demo10Page} name="demo10" />
         <Route path="/demo9" page={Demo9Page} name="demo9" />
         <Route path="/demo8/attachments" page={Demo8AttachmentsPage} name="demo8Attachments" />

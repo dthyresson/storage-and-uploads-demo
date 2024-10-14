@@ -13,10 +13,10 @@ const HomePage = () => {
       />
 
       <div className="mx-auto max-w-3xl">
-        <h1 className="mb-8 text-center text-3xl font-bold text-gray-900">
+        <h1 className="mb-8 text-center text-2xl font-bold text-gray-900">
           Storage and Uploads Demos
         </h1>
-        <ul className="space-y-6">
+        <ul className="grid grid-cols-1 gap-4">
           {demos.map((demo, index) => (
             <li
               key={index}

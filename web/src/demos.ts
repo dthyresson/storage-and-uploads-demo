@@ -102,4 +102,11 @@ export const demos = [
     description: 'Creates an invoice with an attached PDF.',
     tags: ['storage', 'database', 'filesystem', 'dataUri'],
   },
+  {
+    route: () => routes.demo11(),
+    title: 'Demo 11: Drag and Drop File Upload with Redwood Upload Component',
+    description:
+      'A simple upload component that allows you to upload a file to the server.',
+    tags: ['storage', 'database', 'filesystem', 'upload-component'],
+  },
 ]
