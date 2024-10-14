@@ -50,6 +50,7 @@ const Demo11Page = () => {
           },
         },
       })
+      setFiles([])
     } catch (error) {
       console.error('Unexpected error:', error)
     }
@@ -61,16 +62,6 @@ const Demo11Page = () => {
       <Form onSubmit={onSubmit} className="mb-8 space-y-4">
         <RedwoodUploadsComponent
           name="uploadedFiles"
-          fileRenderer={({ files }) => (
-            <div className="flex flex-col gap-2">
-              {files.map((file) => (
-                <div key={file.name}>{file.name}</div>
-              ))}
-            </div>
-          )}
-          fileRejectionRenderer={({ fileRejections }) => (
-            <div>{fileRejections.map((reject) => reject.file.name)} no</div>
-          )}
           onDrop={handleDrop} // Store the dropped files in state
           className="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-gray-300"
           activeClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300"

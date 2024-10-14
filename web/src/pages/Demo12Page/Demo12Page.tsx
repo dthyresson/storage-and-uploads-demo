@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { Form, Submit } from '@redwoodjs/forms'
 import {
   RedwoodUploadsComponent,
+  getReadableErrorMessage,
+  formatFileSize,
   ACCEPTED_IMAGE_TYPES,
 } from '@redwoodjs/uploads-web'
 import type { FileRejection } from '@redwoodjs/uploads-web'
@@ -37,7 +39,7 @@ const CustomFileRenderer = ({ files }) => (
         />
         {file.name}
         <div className="text-sm text-gray-500">
-          {file.size} bytes, {file.type}
+          {formatFileSize(file.size)}, {file.type}
         </div>
       </div>
     ))}
@@ -51,7 +53,11 @@ const CustomFileRejectionRenderer = ({ fileRejections }) => (
       <div className="text-red-500" key={reject.file.name}>
         {reject.file.name}
         <div className="text-sm text-gray-500">
-          {reject.errors.map((error) => error.message).join(', ')}
+          {reject.errors.map((error) => (
+            <div key={`${error.code}-${reject.file.name}`}>
+              {getReadableErrorMessage(reject.file, error.code, error.message)}
+            </div>
+          ))}
         </div>
       </div>
     ))}
@@ -128,13 +134,14 @@ const Demo12Page = () => {
             maxFiles={4}
             accept={ACCEPTED_IMAGE_TYPES}
             onDrop={handleDrop} // Store the dropped files in state
-            className="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-gray-300"
-            activeClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300"
-            rejectClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-purple-300"
+            className="flex h-40 w-full items-center justify-center rounded-md border-2 border-dotted border-gray-300 bg-gray-50"
+            activeClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300 bg-green-50 text-green-600 font-semibold"
+            rejectClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-purple-300 bg-purple-50 text-purple-600 font-semibold"
             fileRenderer={CustomFileRenderer}
             fileRejectionRenderer={CustomFileRejectionRenderer}
             disabled={loading}
             defaultMessage={'Drag or drop some images!'}
+            activeMessage={'Yummy!!!'}
             rejectMessage={'I reject these!'}
           />
 
