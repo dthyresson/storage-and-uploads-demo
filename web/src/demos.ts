@@ -121,7 +121,7 @@ export const demos = [
     route: () => routes.demo13(),
     title: 'Demo 13: Public Urls for OG Images in Social Media',
     description:
-      'Crete Metadata tag with an image for a Post so that social media can unfurl.',
+      'Create Metadata tag with an image for a Post so that social media can unfurl.',
     tags: ['storage', 'database', 'filesystem', 'publicUrl'],
   },
 ]
