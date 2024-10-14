@@ -20,6 +20,10 @@ export const getTagColor = (tag: string) => {
       return 'bg-cyan-200 text-cyan-800'
     case 'documents and images':
       return 'bg-indigo-200 text-indigo-800'
+    case 'upload-component':
+      return 'bg-fuchsia-300 text-fuchsia-900'
+    case 'variants':
+      return 'bg-emerald-300 text-emerald-900'
     default:
       return 'bg-gray-200 text-gray-800'
   }
