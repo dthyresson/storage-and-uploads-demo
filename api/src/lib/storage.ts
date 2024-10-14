@@ -21,6 +21,13 @@ export const storage = new StorageManager({
         baseUrl,
       },
     }),
+    og: new FileSystemAdapter({
+      root: path.join(__dirname, '..', '..', '.og'),
+      signing: {
+        signer,
+        baseUrl,
+      },
+    }),
     s3: new S3Adapter({
       bucket: process.env.AWS_BUCKET,
       region: process.env.AWS_REGION,

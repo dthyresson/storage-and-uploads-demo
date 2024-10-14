@@ -117,4 +117,11 @@ export const demos = [
       'A simple upload component that allows you to upload a file to the server using a dropzone provided by a customized Redwood Uploads Component. Reuses Demo 4 api',
     tags: ['storage', 'database', 'filesystem', 'upload-component'],
   },
+  {
+    route: () => routes.demo13(),
+    title: 'Demo 13: Public Urls for OG Images in Social Media',
+    description:
+      'Crete Metadata tag with an image for a Post so that social media can unfurl.',
+    tags: ['storage', 'database', 'filesystem', 'publicUrl'],
+  },
 ]

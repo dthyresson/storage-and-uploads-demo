@@ -19,6 +19,7 @@ export const schema = gql`
   enum RedwoodStorageAdapter {
     S3
     FS
+    OG
   }
 
   directive @withStorage(

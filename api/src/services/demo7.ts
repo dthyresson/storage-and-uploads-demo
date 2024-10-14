@@ -12,7 +12,7 @@ const storeFile = async <T>(
     const reference = await storage.findAdapter('s3').writeFile(file)
     return await callback(file, reference)
   } catch (error) {
-    logger.error({ error, file }, 'Error persisting file')
+    logger.error({ error, name: file.name }, 'Error persisting file')
     throw error
   }
 }

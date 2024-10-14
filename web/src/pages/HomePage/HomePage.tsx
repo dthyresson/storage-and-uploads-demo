@@ -12,25 +12,25 @@ const HomePage = () => {
         description="Demos for using Storage and Uploads"
       />
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl lg:max-w-6xl">
         <h1 className="mb-8 text-center text-2xl font-bold text-gray-900">
           Storage and Uploads Demos
         </h1>
-        <ul className="grid grid-cols-1 gap-4">
+        <ul className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {demos.map((demo, index) => (
             <li
               key={index}
-              className="overflow-hidden rounded-lg bg-white shadow"
+              className="flex flex-col overflow-hidden rounded-lg bg-white shadow"
             >
               <Link
                 to={demo.route()}
-                className="block transition duration-150 ease-in-out hover:bg-gray-50"
+                className="block flex-grow transition duration-150 ease-in-out hover:bg-gray-50"
               >
-                <div className="px-4 py-5 sm:p-6">
+                <div className="flex h-full flex-col px-4 py-5 sm:p-6">
                   <h3 className="text-lg font-medium leading-6 text-gray-900">
                     {demo.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-500">
+                  <p className="mt-2 flex-grow text-sm text-gray-500">
                     {demo.description}
                   </p>
                   <div className="mt-4">

@@ -10,9 +10,11 @@
     "@redwoodjs/storage-core": "8.4.0",
     "@redwoodjs/uploads-graphql": "8.0.0",
     "pdfkit": "^0.15.0",
+    "randomcolor": "^0.6.2",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@types/pdfkit": "^0.13.5"
+    "@types/pdfkit": "^0.13.5",
+    "@types/randomcolor": "^0"
   }
 }

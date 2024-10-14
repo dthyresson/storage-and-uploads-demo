@@ -5866,12 +5866,12 @@ __metadata:
 
 "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz#./tarballs/redwoodjs-uploads-graphql.tgz::hash=7fcf3d&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz#./tarballs/redwoodjs-uploads-graphql.tgz::hash=62f5b0&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@redwoodjs/context": "npm:8.0.0"
     "@redwoodjs/graphql-server": "npm:8.0.0"
     jsonwebtoken: "npm:9.0.2"
-  checksum: 10c0/2b1ee32af1caade40adce1ea9d87672e9026303bdb304696e8309eae46a00f597a577b68c64d76827c2a9f20430ea996ce3c7f598ee8f9bd58e682a0fc9484d8
+  checksum: 10c0/11313e1ceb666fec1c7ef2b03a150870a85333ba271e4f6db4eef3f2814837dd0093c24f60e49e25c06edd3c9c7fd625c819dd03d55d5c80ee4604e0b50dd462
   languageName: node
   linkType: hard
 
@@ -7367,6 +7367,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/randomcolor@npm:^0":
+  version: 0.5.9
+  resolution: "@types/randomcolor@npm:0.5.9"
+  checksum: 10c0/236c1af0e4fd96835f61a4021ddf31b29ba74699c00e02bbbe26a365a13570e3e46f84ab581137281051dda422797923fc6c687f20cd2d99779311e873fdb7cc
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.19":
   version: 18.3.0
   resolution: "@types/react-dom@npm:18.3.0"
@@ -8004,7 +8011,9 @@ __metadata:
     "@redwoodjs/storage-core": "npm:8.4.0"
     "@redwoodjs/uploads-graphql": "npm:8.0.0"
     "@types/pdfkit": "npm:^0.13.5"
+    "@types/randomcolor": "npm:^0"
     pdfkit: "npm:^0.15.0"
+    randomcolor: "npm:^0.6.2"
     sharp: "npm:^0.33.5"
   languageName: unknown
   linkType: soft
@@ -16556,6 +16565,13 @@ __metadata:
   dependencies:
     safe-buffer: "npm:^5.1.0"
   checksum: 10c0/50395efda7a8c94f5dffab564f9ff89736064d32addf0cc7e8bf5e4166f09f8ded7a0849ca6c2d2a59478f7d90f78f20d8048bca3cdf8be09d8e8a10790388f3
+  languageName: node
+  linkType: hard
+
+"randomcolor@npm:^0.6.2":
+  version: 0.6.2
+  resolution: "randomcolor@npm:0.6.2"
+  checksum: 10c0/845b8b4a31ff4a6fe590930217db93ca5741b0eb7b363c564d5db72d52449383bd4cc44b77b8ae64cf4b70118ef7b8b9062134743e9ec7a6798d6a6f84318a2a
   languageName: node
   linkType: hard
 

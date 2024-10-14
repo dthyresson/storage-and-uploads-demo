@@ -24,6 +24,8 @@ export const getTagColor = (tag: string) => {
       return 'bg-fuchsia-300 text-fuchsia-900'
     case 'variants':
       return 'bg-emerald-300 text-emerald-900'
+    case 'publicUrl':
+      return 'bg-orange-200 text-orange-800'
     default:
       return 'bg-gray-200 text-gray-800'
   }
