@@ -37,6 +37,14 @@ yarn rw dev
 Your browser should automatically open to [http://localhost:8910](http://localhost:8910) where you'll see the Welcome Page, which links out to many great resources.
 
 
+Note:
+
+For Demo13 you'll need to seed the database to create Posts and generate Open Graph images.
+
+```
+yarn rw prisma db seed
+```
+
 ## Quick Links
 
 - Stay updated: read [Forum announcements](https://community.redwoodjs.com/c/announcements/5), follow us on [Twitter](https://twitter.com/redwoodjs), and subscribe to the [newsletter](https://redwoodjs.com/newsletter)
