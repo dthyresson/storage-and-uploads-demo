@@ -45,6 +45,11 @@ export const getRedwoodUploadToken: GetRedwoodUploadTokenResolver = async ({
       maxFileSize = 10 * 1024 * 1024 // 10MB
       contentTypes = IMAGE_CONTENT_TYPES
       break
+    case 'Demo12':
+      contentTypes = IMAGE_CONTENT_TYPES
+      minFiles = 1
+      maxFiles = 2
+      break
     default:
       contentTypes = IMAGE_CONTENT_TYPES
   }

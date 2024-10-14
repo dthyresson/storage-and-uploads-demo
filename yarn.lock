@@ -5877,13 +5877,13 @@ __metadata:
 
 "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=75c520&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=da2904&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@apollo/client": "npm:3.11.1"
     "@redwoodjs/web": "npm:8.0.0"
     react-dropzone: "npm:14.2.3"
     react-hot-toast: "npm:2.4.1"
-  checksum: 10c0/70f23e2cd01ec740560693e9f81306f921aa8b40a9eeb21da7b0a2af862037a369e0c1a9b3d71a9c450ba164959f875091a02c21abf87c6942e4d0580bdc10f6
+  checksum: 10c0/057aa66f768dcb391b4d8dc5e533b42602c699b0d61e28f0a794b7d587a63687110e7423ceb61d32fd67a5fadac9c2ed33231e638d1eb7c519bb87e239bdf1aa
   languageName: node
   linkType: hard
 
