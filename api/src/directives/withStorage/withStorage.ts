@@ -61,10 +61,15 @@ const transform: TransformerDirectiveFunc = async ({
     directiveArgs.adapter.toLowerCase() as string
   )
 
+  // you can check context's currentUser to conditionally return signed urls or data uris
+
   try {
     if (format === 'SIGNED_URL') {
+      // rename to temporaryUrl?
       return await adapter.getSignedUrl(resolvedValue)
     }
+
+    // format of public
 
     if (format === 'DATA_URI') {
       return await getBase64DataUri(adapter, resolvedValue)

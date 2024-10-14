@@ -9,7 +9,7 @@ import {
 } from '@redwoodjs/graphql-server'
 import { DEFAULT_UPLOAD_TOKEN_HEADER_NAME } from '@redwoodjs/uploads-graphql'
 import type {
-  UploadConfig,
+  UploadsConfig,
   UploadErrorMessages,
 } from '@redwoodjs/uploads-graphql'
 
@@ -84,7 +84,7 @@ const validateUploadToken = (context: GlobalContext) => {
 
 const validateFiles = (
   files: File[],
-  { minFiles, maxFiles, contentTypes, maxFileSize }: UploadConfig
+  { minFiles, maxFiles, contentTypes, maxFileSize }: UploadsConfig
 ) => {
   const fileCount = files.length
 
@@ -152,7 +152,7 @@ const validateFiles = (
 const validate: ValidatorDirectiveFunc = ({ directiveArgs, args, context }) => {
   const { variable, fields } = directiveArgs
 
-  const uploadConfig = validateUploadToken(context) as UploadConfig
+  const uploadsConfig = validateUploadToken(context) as UploadsConfig
 
   try {
     const inputVariable = args[variable]
@@ -163,7 +163,7 @@ const validate: ValidatorDirectiveFunc = ({ directiveArgs, args, context }) => {
 
     fields.forEach((field) => {
       const files = inputVariable[field] as File[]
-      validateFiles(files, uploadConfig)
+      validateFiles(files, uploadsConfig)
     })
   } catch (error) {
     logger.error({ error }, 'Upload validation failed')
