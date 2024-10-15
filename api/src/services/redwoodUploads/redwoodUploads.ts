@@ -23,7 +23,6 @@ export const getRedwoodUploadToken: GetRedwoodUploadTokenResolver = async ({
   let maxFileSize = 1 * 1024 * 1024 // 1MB
 
   let contentTypes
-
   // based on the operation name, we can configure the content types, max file size, etc
   switch (operationName) {
     case 'Demo6':

@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { Form, Submit } from '@redwoodjs/forms'
 import { RedwoodUploadsComponent } from '@redwoodjs/uploads-web'
+import type { FileRejection } from '@redwoodjs/uploads-web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -34,10 +35,16 @@ const Demo11Page = () => {
   })
 
   const [files, setFiles] = useState<File[]>([])
+  const [fileRejections, setFileRejections] = useState<FileRejection[]>([])
 
-  // Handler for dropping files
-  const handleDrop = (acceptedFiles: File[]) => {
+  // Updated handler for dropping files
+  const handleDrop = (
+    acceptedFiles: File[],
+    fileRejections: FileRejection[],
+    _event: React.DragEvent<HTMLElement>
+  ) => {
     setFiles(acceptedFiles)
+    setFileRejections(fileRejections)
   }
 
   const onSubmit = async (data) => {
@@ -61,11 +68,22 @@ const Demo11Page = () => {
       <Demo index={11} />
       <Form onSubmit={onSubmit} className="mb-8 space-y-4">
         <RedwoodUploadsComponent
-          name="uploadedFiles"
-          onDrop={handleDrop} // Store the dropped files in state
-          className="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-gray-300"
-          activeClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300"
-          rejectClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-red-300"
+          uiElements={{ name: 'uploadedFiles' }}
+          fileHandling={{
+            onDrop: handleDrop,
+            acceptedFiles: files,
+            setAcceptedFiles: setFiles,
+            fileRejections: fileRejections,
+            setFileRejections: setFileRejections,
+          }}
+          styling={{
+            className:
+              'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-gray-300',
+            activeClassName:
+              'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300',
+            rejectClassName:
+              'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-red-300',
+          }}
         />
 
         <Submit

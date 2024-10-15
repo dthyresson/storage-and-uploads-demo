@@ -1,5 +1,6 @@
-import { RedwoodStorageFormat } from 'types/graphql'
+import { RedwoodStorageFormat, RedwoodStorageAdapter } from 'types/graphql'
 
+import type { TransformArgs } from '@redwoodjs/graphql-server'
 import {
   createTransformerDirective,
   TransformerDirectiveFunc,
@@ -8,6 +9,7 @@ import type { StorageAdapter } from '@redwoodjs/storage-core'
 
 import { logger } from 'src/lib/logger'
 import { storage } from 'src/lib/storage'
+
 export const schema = gql`
   """
   Use @withStorage to fetch data from storage as a signed URL or data URI.
@@ -16,6 +18,7 @@ export const schema = gql`
     SIGNED_URL
     DATA_URI
   }
+
   enum RedwoodStorageAdapter {
     S3
     FS
@@ -45,32 +48,29 @@ export const getBase64DataUri = async (
   }
 }
 
+// New type definition for directiveArgs
+type WithStorageDirectiveArgs = {
+  adapter: RedwoodStorageAdapter
+  format: RedwoodStorageFormat
+}
+
 const transform: TransformerDirectiveFunc = async ({
   directiveArgs,
   resolvedValue,
-}) => {
-  if (
-    !resolvedValue ||
-    typeof resolvedValue !== 'string' ||
-    resolvedValue.length === 0
-  ) {
+}: TransformArgs<string | null | undefined, WithStorageDirectiveArgs>) => {
+  if (typeof resolvedValue !== 'string' || resolvedValue.length === 0) {
     return null
   }
 
-  const format = directiveArgs.format as RedwoodStorageFormat
-  const adapter = storage.findAdapter(
-    directiveArgs.adapter.toLowerCase() as string
-  )
+  const format = directiveArgs.format
+  const adapter = storage.findAdapter(directiveArgs.adapter.toLowerCase())
 
   // you can check context's currentUser to conditionally return signed urls or data uris
 
   try {
     if (format === 'SIGNED_URL') {
-      // rename to temporaryUrl?
       return await adapter.getSignedUrl(resolvedValue)
     }
-
-    // format of public
 
     if (format === 'DATA_URI') {
       return await getBase64DataUri(adapter, resolvedValue)

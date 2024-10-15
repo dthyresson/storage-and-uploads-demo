@@ -5429,7 +5429,7 @@ __metadata:
 
 "@redwoodjs/cli@file:./tarballs/redwoodjs-cli.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/cli@file:./tarballs/redwoodjs-cli.tgz#./tarballs/redwoodjs-cli.tgz::hash=d4cdba&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/cli@file:./tarballs/redwoodjs-cli.tgz#./tarballs/redwoodjs-cli.tgz::hash=5738ab&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@babel/runtime-corejs3": "npm:7.25.0"
     "@opentelemetry/api": "npm:1.8.0"
@@ -5489,7 +5489,7 @@ __metadata:
     redwood: ./dist/index.js
     rw: ./dist/index.js
     rwfw: ./dist/rwfw.js
-  checksum: 10c0/7738e93b1ccbd7d80e7e0fecfa5721cea674d6c28523a14835351768f7f8c71ecb1629cae7958ede1ac2215420e9b3ee8cb514a88d958c61c65f10c110ad3560
+  checksum: 10c0/eedf24eb8bb84e6e93ac17260b61c95a11da97b7d649f470fbe2d82e4568e7f5755b5d71ca30aaa2ceb8c4fdca4a8c410f8f44227c60463a829fcd9b1791f928
   languageName: node
   linkType: hard
 
@@ -5866,24 +5866,24 @@ __metadata:
 
 "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz#./tarballs/redwoodjs-uploads-graphql.tgz::hash=62f5b0&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-graphql@file:./tarballs/redwoodjs-uploads-graphql.tgz#./tarballs/redwoodjs-uploads-graphql.tgz::hash=c7f0fb&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@redwoodjs/context": "npm:8.0.0"
     "@redwoodjs/graphql-server": "npm:8.0.0"
     jsonwebtoken: "npm:9.0.2"
-  checksum: 10c0/11313e1ceb666fec1c7ef2b03a150870a85333ba271e4f6db4eef3f2814837dd0093c24f60e49e25c06edd3c9c7fd625c819dd03d55d5c80ee4604e0b50dd462
+  checksum: 10c0/556840664f807454a511e82826f51a39aaf9d811689444f1a553e905047a80497a2866f066896a81770f880e68b8c947ccd00377739460f4fa89528affed3832
   languageName: node
   linkType: hard
 
 "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=6827a7&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=af6146&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@apollo/client": "npm:3.11.1"
     "@redwoodjs/web": "npm:8.0.0"
     react-dropzone: "npm:14.2.3"
     react-hot-toast: "npm:2.4.1"
-  checksum: 10c0/382ea00f0a6fc842ef4fc1d3d95b4db8f644123b81876fd2dd13199718c05c3c01cd0d033bfd15f4a020a332738355a9ea86878452d32bcf2b2dafc85b757d9b
+  checksum: 10c0/1dfba8d07e92d8d9498ade5c8d978e0ff527b663a229b8a2ba1c7643c9cc758e009726dc456eabd6ecb90df360efa2950e01d97478e983e3cd080c3c46b0b6b1
   languageName: node
   linkType: hard
 

@@ -55,9 +55,9 @@ const CustomFileRenderer = ({ files }) => (
 
 const CustomFileRejectionRenderer = ({ fileRejections }) => (
   <div>
-    <h4 className="text-lg font-semibold">I reject!</h4>
+    <h4 className="text-lg font-semibold">I reject you!</h4>
     {fileRejections.map((reject) => (
-      <div className="text-red-500" key={reject.file.name}>
+      <div className="text-purple-500" key={reject.file.name}>
         {reject.file.name}
         <div className="text-sm text-gray-500">
           {reject.errors.map((error) => (
@@ -132,24 +132,43 @@ const Demo12Page = () => {
 
         <Form onSubmit={onSubmit} className="mb-8 space-y-4">
           <RedwoodUploadsComponent
-            name="attachments"
-            acceptedFiles={acceptedFiles}
-            setAcceptedFiles={setAcceptedFiles}
-            fileRejections={fileRejections}
-            setFileRejections={setFileRejections}
-            maxSize={1.2 * 1024 * 1024} // 1.2MB
-            maxFiles={4}
-            accept={ACCEPTED_IMAGE_TYPES}
-            onDrop={handleDrop} // Store the dropped files in state
-            className="flex h-40 w-full items-center justify-center rounded-md border-2 border-dotted border-gray-300 bg-gray-50"
-            activeClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300 bg-green-50 text-green-600 font-semibold"
-            rejectClassName="flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-purple-300 bg-purple-50 text-purple-600 font-semibold"
-            fileRenderer={CustomFileRenderer}
-            fileRejectionRenderer={CustomFileRejectionRenderer}
+            fileHandling={{
+              onDrop: (acceptedFiles, fileRejections) => {
+                handleDrop(acceptedFiles)
+                setAcceptedFiles(acceptedFiles)
+                setFileRejections(fileRejections)
+              },
+              acceptedFiles: acceptedFiles,
+              setAcceptedFiles: setAcceptedFiles,
+              fileRejections: fileRejections,
+              setFileRejections: setFileRejections,
+            }}
+            fileConstraints={{
+              maxSize: 1.2 * 1024 * 1024, // 1.2MB
+              maxFiles: 4,
+              accept: ACCEPTED_IMAGE_TYPES,
+            }}
+            styling={{
+              className:
+                'flex h-40 w-full items-center justify-center rounded-md border-2 border-dotted border-gray-300 bg-gray-50',
+              activeClassName:
+                'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300 bg-green-50 text-green-600 font-semibold',
+              rejectClassName:
+                'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-purple-300 bg-purple-50 text-purple-600 font-semibold',
+            }}
+            uiElements={{
+              name: 'attachments',
+            }}
+            customMessages={{
+              defaultMessage: 'Drag or drop some images!',
+              activeMessage: 'Yummy!!!',
+              rejectMessage: 'I reject these!',
+            }}
+            customRenderers={{
+              fileRenderer: CustomFileRenderer,
+              fileRejectionRenderer: CustomFileRejectionRenderer,
+            }}
             disabled={loading}
-            defaultMessage={'Drag or drop some images!'}
-            activeMessage={'Yummy!!!'}
-            rejectMessage={'I reject these!'}
           />
 
           <Submit

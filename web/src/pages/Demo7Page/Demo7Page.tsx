@@ -20,19 +20,24 @@ const DEMO7_MUTATION = gql`
 `
 
 const Demo7Page = () => {
-  const [demo7, { loading, error }] = useUploadsMutation(DEMO7_MUTATION, {
-    onCompleted: (data) => {
-      console.log('Files uploaded:', data.demo7.attachments)
-      toast.success(
-        `${data.demo7.attachments.length} files uploaded successfully!`
-      )
-      navigate(routes.demo7Attachments())
-    },
-    onError: (error) => {
-      console.error('Error uploading files:', error)
-      toast.error(`Error uploading files: ${error.message}`)
-    },
-  })
+  const [demo7, { loading, error }, token] = useUploadsMutation(
+    DEMO7_MUTATION,
+    {
+      onCompleted: (data) => {
+        console.log('Files uploaded:', data.demo7.attachments)
+        toast.success(
+          `${data.demo7.attachments.length} files uploaded successfully!`
+        )
+        navigate(routes.demo7Attachments())
+      },
+      onError: (error) => {
+        console.error('Error uploading files:', error)
+        toast.error(`Error uploading files: ${error.message}`)
+      },
+    }
+  )
+
+  console.log('token', token)
 
   const onSubmit = async (data) => {
     console.log('data', data)

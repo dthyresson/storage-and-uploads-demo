@@ -107,7 +107,7 @@ export const demos = [
     title: 'Demo 11: Drag and Drop File Upload with Redwood Upload Component',
     description:
       'A simple upload component that allows you to upload a file to the server using a dropzone provided by the Redwood Uploads Component. Reuses Demo 1 api.',
-    tags: ['storage', 'database', 'filesystem', 'upload-component'],
+    tags: ['storage', 'database', 'upload-component'],
   },
   {
     route: () => routes.demo12(),
@@ -115,7 +115,7 @@ export const demos = [
       'Demo 12: Drag and Drop File Upload with Redwood Uploads Component and custom options',
     description:
       'A simple upload component that allows you to upload a file to the server using a dropzone provided by a customized Redwood Uploads Component. Reuses Demo 4 api',
-    tags: ['storage', 'database', 'filesystem', 'upload-component'],
+    tags: ['storage', 'database', 'upload-component'],
   },
   {
     route: () => routes.demo13(),

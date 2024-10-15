@@ -25,6 +25,14 @@ export const handler = createGraphQLHandler({
   extraPlugins: [
     useRedwoodUploads({
       appName: 'Redwood Storage and Uploads Demo',
+      errorMessages: {
+        tooManyFiles: ({ maxFiles }) =>
+          `Way too many files!!!! Only ${maxFiles} files allowed`,
+        tooLargeFile: ({ maxFileSize }) =>
+          `File too large, max size is ${maxFileSize} bytes`,
+        invalidFileType: 'Invalid file type',
+        tooFewFiles: 'Too few files',
+      },
     }),
   ],
   onException: () => {
