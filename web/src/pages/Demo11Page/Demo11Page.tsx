@@ -63,7 +63,11 @@ const Demo11Page = () => {
       {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
 
       <Form onSubmit={onSubmit} className="mb-8 space-y-4">
-        <RedwoodUploadsComponent name="uploadedFiles" setFiles={setFiles}>
+        <RedwoodUploadsComponent
+          name="uploadedFiles"
+          setFiles={setFiles}
+          allowPaste={false}
+        >
           <PreviewFiles />
           <PreviewFileRejections />
         </RedwoodUploadsComponent>

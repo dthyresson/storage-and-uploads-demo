@@ -95,6 +95,7 @@ const Demo12Page = () => {
             }}
             setFiles={setFiles}
             onResetFiles={onResetFiles}
+            allowPaste={true}
             dropzoneContent={
               <div className="flex h-40 items-center justify-center text-neutral-500">
                 <RedwoodUploadsButton className="my-8 rounded-md bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600">
