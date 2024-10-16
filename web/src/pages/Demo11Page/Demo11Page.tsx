@@ -66,7 +66,7 @@ const Demo11Page = () => {
         <RedwoodUploadsComponent
           name="uploadedFiles"
           setFiles={setFiles}
-          allowPaste={false}
+          allowPaste={true}
         >
           <PreviewFiles />
           <PreviewFileRejections />
