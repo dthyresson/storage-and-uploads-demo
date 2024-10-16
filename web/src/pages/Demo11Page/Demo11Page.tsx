@@ -11,6 +11,8 @@ import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
 
+import { FileUploadResult } from './FileUploadResult'
+
 const DEMO11_MUTATION = gql`
   mutation Demo11($input: Demo1Input!) {
     demo11: demo1(input: $input) {
@@ -58,6 +60,8 @@ const Demo11Page = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <Demo index={11} />
+      {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
+
       <Form onSubmit={onSubmit} className="mb-8 space-y-4">
         <RedwoodUploadsComponent
           name="uploadedFiles"
@@ -82,24 +86,7 @@ const Demo11Page = () => {
         </Submit>
       </Form>
 
-      {error && <p className="mb-4 text-red-600">Error: {error.message}</p>}
-
-      {result && (
-        <div className="rounded-lg bg-gray-100 p-6 shadow-md">
-          <h2 className="mb-4 text-2xl font-semibold">File Metadata</h2>
-          <ul className="space-y-2">
-            <li>
-              <strong className="font-medium">Name:</strong> {result.name}
-            </li>
-            <li>
-              <strong className="font-medium">Type:</strong> {result.type}
-            </li>
-            <li>
-              <strong className="font-medium">Size:</strong> {result.size} bytes
-            </li>
-          </ul>
-        </div>
-      )}
+      <FileUploadResult result={result} />
     </div>
   )
 }

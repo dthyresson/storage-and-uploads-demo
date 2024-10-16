@@ -3,16 +3,17 @@ import { useState, useCallback } from 'react'
 import { Form, Submit } from '@redwoodjs/forms'
 import {
   RedwoodUploadsComponent,
-  getReadableErrorMessage,
-  formatFileSize,
   ACCEPTED_IMAGE_TYPES,
   RedwoodUploadsButton,
-  useRedwoodUploadsContext,
 } from '@redwoodjs/uploads-web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
+
+import { CustomPreviewFileRejections } from './CustomPreviewFileRejections'
+import { CustomPreviewFiles } from './CustomPreviewFiles'
+import { FileUploadResult } from './FileUploadResult'
 
 const DEMO4_MUTATION = gql`
   mutation Demo12($input: Demo4Input!) {
@@ -27,92 +28,6 @@ const DEMO4_MUTATION = gql`
     }
   }
 `
-
-const CustomPreviewFiles = () => {
-  const { acceptedFiles } = useRedwoodUploadsContext()
-
-  return (
-    acceptedFiles?.length > 0 && (
-      <div className="mt-4 flex flex-col gap-2">
-        <h4 className="text-lg font-semibold">I approve!</h4>
-        {acceptedFiles.map((file) => {
-          const isImage = file.type.startsWith('image/')
-          const previewUrl = isImage ? URL.createObjectURL(file) : null
-          return (
-            <div key={file.name} className="flex items-center gap-2">
-              {previewUrl && (
-                <img
-                  src={previewUrl}
-                  alt={file.name}
-                  className="h-20 w-20 rounded-md object-cover shadow-md"
-                  onLoad={() => URL.revokeObjectURL(previewUrl)}
-                />
-              )}
-              {file.name}
-              <div className="text-sm text-gray-500">
-                {formatFileSize(file.size)}, {file.type}
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    )
-  )
-}
-
-const CustomPreviewFileRejections = () => {
-  const { fileRejections } = useRedwoodUploadsContext()
-
-  return (
-    fileRejections?.length > 0 && (
-      <div>
-        <h4 className="text-lg font-semibold">I reject you!</h4>
-        {fileRejections.map((reject) => (
-          <div className="text-purple-500" key={reject.file.name}>
-            {reject.file.name}
-            <div className="text-sm text-gray-500">
-              {reject.errors.map((error) => (
-                <div key={`${error.code}-${reject.file.name}`}>
-                  {getReadableErrorMessage(
-                    reject.file,
-                    error.code,
-                    error.message
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    )
-  )
-}
-
-const FilUploadResult = ({ result }) => {
-  return (
-    result &&
-    result.attachments.length > 0 &&
-    result.attachments.map((attachment) => (
-      <div key={attachment.id} className="mb-4 rounded-lg bg-gray-100 p-6">
-        <h2 className="mb-4 text-2xl font-semibold">
-          File Metadata for {attachment.id}
-        </h2>
-        <ul className="space-y-2">
-          <li>
-            <strong className="font-medium">Name:</strong> {attachment.name}
-          </li>
-          <li>
-            <strong className="font-medium">Type:</strong> {attachment.type}
-          </li>
-          <li>
-            <strong className="font-medium">Size:</strong> {attachment.size}{' '}
-            bytes
-          </li>
-        </ul>
-      </div>
-    ))
-  )
-}
 
 const Demo12Page = () => {
   const [resetFiles, setResetFiles] = useState<(() => void) | null>(null)
@@ -208,7 +123,7 @@ const Demo12Page = () => {
           </Submit>
         </Form>
 
-        <FilUploadResult result={result} />
+        <FileUploadResult result={result} />
       </div>
     </>
   )
