@@ -1,8 +1,11 @@
 import { useState } from 'react'
 
 import { Form, Submit } from '@redwoodjs/forms'
-import { RedwoodUploadsComponent } from '@redwoodjs/uploads-web'
-import type { FileRejection } from '@redwoodjs/uploads-web'
+import {
+  RedwoodUploadsComponent,
+  PreviewFiles,
+  PreviewFileRejections,
+} from '@redwoodjs/uploads-web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -35,17 +38,6 @@ const Demo11Page = () => {
   })
 
   const [files, setFiles] = useState<File[]>([])
-  const [fileRejections, setFileRejections] = useState<FileRejection[]>([])
-
-  // Updated handler for dropping files
-  const handleDrop = (
-    acceptedFiles: File[],
-    fileRejections: FileRejection[],
-    _event: React.DragEvent<HTMLElement>
-  ) => {
-    setFiles(acceptedFiles)
-    setFileRejections(fileRejections)
-  }
 
   const onSubmit = async (data) => {
     try {
@@ -68,23 +60,18 @@ const Demo11Page = () => {
       <Demo index={11} />
       <Form onSubmit={onSubmit} className="mb-8 space-y-4">
         <RedwoodUploadsComponent
-          uiElements={{ name: 'uploadedFiles' }}
-          fileHandling={{
-            onDrop: handleDrop,
-            acceptedFiles: files,
-            setAcceptedFiles: setFiles,
-            fileRejections: fileRejections,
-            setFileRejections: setFileRejections,
-          }}
-          styling={{
-            className:
-              'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-gray-300',
-            activeClassName:
-              'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-green-300',
-            rejectClassName:
-              'flex h-40 w-full items-center justify-center rounded-md border-2 border-dashed border-red-300',
-          }}
-        />
+          name="uploadedFiles"
+          className="flex h-40 w-full items-center justify-center rounded-md border-2 border-dotted border-gray-300 bg-gray-50"
+          messageContent={
+            <div className="justify-center text-center text-gray-500">
+              Upload your files here
+            </div>
+          }
+          setFiles={setFiles}
+        >
+          <PreviewFiles />
+          <PreviewFileRejections />
+        </RedwoodUploadsComponent>
 
         <Submit
           disabled={loading}
