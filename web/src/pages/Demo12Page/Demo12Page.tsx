@@ -11,10 +11,10 @@ import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
 
+import { CustomMessage } from './CustomMessage'
 import { CustomPreviewFileRejections } from './CustomPreviewFileRejections'
 import { CustomPreviewFiles } from './CustomPreviewFiles'
 import { FileUploadResult } from './FileUploadResult'
-
 const DEMO4_MUTATION = gql`
   mutation Demo12($input: Demo4Input!) {
     demo12: demo4(input: $input) {
@@ -102,11 +102,7 @@ const Demo12Page = () => {
                 </RedwoodUploadsButton>
               </div>
             }
-            messageContent={
-              <div className="flex items-center justify-center text-neutral-500">
-                Drop files here
-              </div>
-            }
+            messageContent={<CustomMessage />}
             noClick={true}
             disabled={loading}
           >
