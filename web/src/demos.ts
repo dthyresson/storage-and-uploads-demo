@@ -124,4 +124,18 @@ export const demos = [
       'Create Metadata tag with an image for a Post so that social media can unfurl. Uses sharp to create an image with a watermark and text.',
     tags: ['storage', 'database', 'filesystem', 'publicUrl'],
   },
+  {
+    route: () => routes.demo14(),
+    title: 'Demo 14: Upload with Progress Bar',
+    description:
+      'Basic upload with a progress bar. Uses withUploadProgress to show the progress.',
+    tags: ['uploads', 'progress'],
+  },
+  {
+    route: () => routes.demo15(),
+    title: 'Demo 15: Upload with Upload Token validation and Progress Bar',
+    description:
+      'Redwood Uploads Component with Upload Token validation and Progress Bar. Uses withUploadProgress to show the progress.',
+    tags: ['uploads', 'progress'],
+  },
 ]

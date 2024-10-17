@@ -5877,13 +5877,13 @@ __metadata:
 
 "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=9837d3&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=d3bc63&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@apollo/client": "npm:3.11.1"
     "@redwoodjs/web": "npm:8.0.0"
     react-dropzone: "npm:14.2.3"
     react-hot-toast: "npm:2.4.1"
-  checksum: 10c0/2c2478e84c68fafb7da576631819d43663eeb463ba5f01db14c9a8041307dd2ea22011b209321b9656d5ef7cf3af6312dedb40932032be988c0b3b36bbdefebd
+  checksum: 10c0/e6f297240a68bd77a8e2b2a41132dd59e06bfd32fe2f33d164476ac1bfe2b4a52f217c90fdb7c2a636eeb4e2cb5965648acfd55217656daaea75c401f11baba8
   languageName: node
   linkType: hard
 
@@ -5956,7 +5956,7 @@ __metadata:
 
 "@redwoodjs/web@file:./tarballs/redwoodjs-web.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/web@file:./tarballs/redwoodjs-web.tgz#./tarballs/redwoodjs-web.tgz::hash=334615&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/web@file:./tarballs/redwoodjs-web.tgz#./tarballs/redwoodjs-web.tgz::hash=a5a8a2&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@apollo/client": "npm:3.11.1"
     "@babel/runtime-corejs3": "npm:7.25.7"
@@ -5983,7 +5983,7 @@ __metadata:
     rwfw: ./dist/cjs/bins/rwfw.js
     storybook: ./dist/cjs/bins/storybook.js
     tsc: ./dist/cjs/bins/tsc.js
-  checksum: 10c0/a22733f4b90e87a6f6168fedc8e5027b4ea512ce4819da393461333221507a7b852d428d5eeaff7d79b9a9fcc4fb14d024f36d5335c021f5a0a06c9098bb9b93
+  checksum: 10c0/d85a926f59784c95838948b3bffea93da9088696e2e099bb16949c996cc35b00325855528afaf1c35859fe765c598e34df9a0f1a2b23f65401021ac3d751be6a
   languageName: node
   linkType: hard
 

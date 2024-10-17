@@ -4,7 +4,7 @@ import { Form, Submit } from '@redwoodjs/forms'
 import {
   RedwoodUploadsComponent,
   ACCEPTED_IMAGE_TYPES,
-  RedwoodUploadsButton,
+  RedwoodFilePickerButton,
 } from '@redwoodjs/uploads-web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -98,9 +98,9 @@ const Demo12Page = () => {
             allowPaste={true}
             dropzoneContent={
               <div className="flex h-40 items-center justify-center text-neutral-500">
-                <RedwoodUploadsButton className="my-8 rounded-md bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600">
-                  Add File
-                </RedwoodUploadsButton>
+                <RedwoodFilePickerButton className="my-8 rounded-md bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600">
+                  Pick File
+                </RedwoodFilePickerButton>
               </div>
             }
             messageContent={<CustomMessage />}

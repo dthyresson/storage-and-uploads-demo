@@ -26,6 +26,10 @@ export const getTagColor = (tag: string) => {
       return 'bg-emerald-300 text-emerald-900'
     case 'publicUrl':
       return 'bg-orange-200 text-orange-800'
+    case 'upload-token':
+      return 'bg-green-200 text-green-800'
+    case 'progress':
+      return 'bg-yellow-200 text-yellow-800'
     default:
       return 'bg-gray-200 text-gray-800'
   }
