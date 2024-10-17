@@ -61,17 +61,13 @@ const Demo14Page = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <Demo index={14} />
-      {inProgress && (
-        <>
-          <div className="mb-4">
-            <ProgressBar
-              progress={progress}
-              inProgress={inProgress}
-              onAbort={onAbort}
-            />
-          </div>
-        </>
-      )}
+      <div className="mb-4">
+        <ProgressBar
+          progress={progress}
+          inProgress={inProgress}
+          onAbort={onAbort}
+        />
+      </div>
       <Form onSubmit={onSubmit} className="mb-8">
         <div className="mb-4">
           <FileField
