@@ -1,6 +1,7 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
+import { useUploadProgress } from '@redwoodjs/uploads-web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -19,10 +20,11 @@ const DEMO14_MUTATION = gql`
 `
 
 const Demo14Page = () => {
-  const [progress, setProgress] = useState<number>(0)
   const [result, setResult] = useState(null)
-  const [abortHandler, setAbortHandler] = useState(null)
   const [inProgress, setInProgress] = useState(false)
+  const { fetchOptionsWithProgress, progress, setProgress, onAbortHandler } =
+    useUploadProgress()
+
   const [demo14, { error }] = useMutation(DEMO14_MUTATION, {
     onCompleted: (data) => {
       console.log('File uploaded:', data.demo14)
@@ -37,42 +39,24 @@ const Demo14Page = () => {
     },
   })
 
+  const onAbort = () => {
+    onAbortHandler()
+    setProgress(0)
+    setInProgress(false)
+  }
+
   const onSubmit = async (data) => {
-    console.log('data', data)
     try {
       setInProgress(true)
       await demo14({
         variables: { input: data },
-        context: {
-          fetchOptions: {
-            useUploadProgress: true,
-            headers: (headers) => ({
-              ...headers,
-            }),
-            onProgress: (ev: ProgressEvent) => {
-              setProgress(ev.loaded / ev.total)
-              console.log('progress', ev.loaded / ev.total)
-            },
-            onAbortPossible: (abort) => {
-              setAbortHandler(() => abort)
-            },
-          },
-        },
+        context: { fetchOptions: { ...fetchOptionsWithProgress } },
       })
     } catch (error) {
       console.error('Unexpected error:', error)
       setInProgress(false)
     }
   }
-
-  const handleAbort = useCallback(() => {
-    if (abortHandler) {
-      abortHandler()
-      setInProgress(false)
-      setProgress(0)
-      toast.error('Upload aborted')
-    }
-  }, [abortHandler])
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -83,7 +67,7 @@ const Demo14Page = () => {
             <ProgressBar
               progress={progress}
               inProgress={inProgress}
-              onAbort={handleAbort}
+              onAbort={onAbort}
             />
           </div>
         </>

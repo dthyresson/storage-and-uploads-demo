@@ -22,12 +22,12 @@ const ProgressBar = ({ progress, inProgress, onAbort }: ProgressBarProps) => {
               {Math.round(progress * 100)}%
             </span>
           </div>
-          <div className="my-6flex justify-end">
+          <div className="my-6 flex justify-end">
             <button
               onClick={onAbort}
               className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-600"
             >
-              Abort
+              Cancel
             </button>
           </div>
         </div>
