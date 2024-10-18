@@ -5554,7 +5554,7 @@ __metadata:
 
 "@redwoodjs/eslint-config@file:./tarballs/redwoodjs-eslint-config.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/eslint-config@file:./tarballs/redwoodjs-eslint-config.tgz#./tarballs/redwoodjs-eslint-config.tgz::hash=df4efb&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/eslint-config@file:./tarballs/redwoodjs-eslint-config.tgz#./tarballs/redwoodjs-eslint-config.tgz::hash=5a937b&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@babel/core": "npm:^7.22.20"
     "@babel/eslint-parser": "npm:7.25.1"
@@ -5575,7 +5575,7 @@ __metadata:
     eslint-plugin-react: "npm:7.36.1"
     eslint-plugin-react-hooks: "npm:4.6.0"
     prettier: "npm:3.3.3"
-  checksum: 10c0/10534e8498b86fed5fc21227b266924ebdae357ed51de158828cc209d5af98b9f88d771c1af4bcd281d32bc630624ed318ce9ad718aaa9e44e467a89300f0b6a
+  checksum: 10c0/4f18e1072e1016bfd8530f60ce43db8c1570319f7fb97096d6ac3d77230b256f6d669e29cc967290b661cb3f084f78ee403fa21eaae7d9fa968d893bd5d6aafd
   languageName: node
   linkType: hard
 
@@ -5877,13 +5877,13 @@ __metadata:
 
 "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=f16212&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/uploads-web@file:./tarballs/redwoodjs-uploads-web.tgz#./tarballs/redwoodjs-uploads-web.tgz::hash=e85b1a&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@apollo/client": "npm:3.11.1"
     "@redwoodjs/web": "npm:8.0.0"
     react-dropzone: "npm:14.2.3"
     react-hot-toast: "npm:2.4.1"
-  checksum: 10c0/d17bc4b8f27f0e11b5d4c36ca6d1c6605e235e88629bf74769ec23a05da4b8a6f2d8d7d62d5dfe47b3e89c09919dfb16f62406c4aad6daa01e675d2db44e3686
+  checksum: 10c0/9dccc51fbb10c179b232555e319c7442339178a5d23fe08ddb3eb2492ff474866b3e365686a2264cd5abeac4f68d475394f62f4fdf4eb97a5591951ac6b1fc00
   languageName: node
   linkType: hard
 
