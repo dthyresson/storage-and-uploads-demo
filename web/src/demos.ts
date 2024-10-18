@@ -138,4 +138,12 @@ export const demos = [
       'Redwood Uploads Component with Upload Token validation and Progress Bar. Uses withUploadProgress to show the progress.',
     tags: ['uploads', 'multiple', 'progress'],
   },
+  {
+    route: () => routes.demo16(),
+    title:
+      'Demo 16: Upload with Upload Token validation, Progress Bar and Authentication',
+    description:
+      'Redwood Uploads Component with Upload Token validation, Progress Bar and Authentication.',
+    tags: ['uploads', 'multiple', 'progress', 'auth'],
+  },
 ]

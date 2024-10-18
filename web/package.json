@@ -11,6 +11,7 @@
     ]
   },
   "dependencies": {
+    "@redwoodjs/auth-dbauth-web": "8.0.0",
     "@redwoodjs/forms": "8.4.0",
     "@redwoodjs/router": "8.4.0",
     "@redwoodjs/uploads-graphql": "8.4.0",

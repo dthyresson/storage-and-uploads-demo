@@ -30,6 +30,8 @@ export const getTagColor = (tag: string) => {
       return 'bg-green-200 text-green-800'
     case 'progress':
       return 'bg-yellow-200 text-yellow-800'
+    case 'auth':
+      return 'bg-sky-200 text-sky-800'
     default:
       return 'bg-gray-200 text-gray-800'
   }

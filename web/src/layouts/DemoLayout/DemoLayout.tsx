@@ -1,6 +1,7 @@
-import { NavLink, routes } from '@redwoodjs/router'
+import { Link, NavLink, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 
+import { useAuth } from 'src/auth'
 import { demos } from 'src/demos'
 
 type DemoLayoutProps = {
@@ -8,6 +9,7 @@ type DemoLayoutProps = {
 }
 
 const DemoLayout = ({ children }: DemoLayoutProps) => {
+  const { isAuthenticated, currentUser, logOut } = useAuth()
   return (
     <div className="flex min-h-screen flex-col">
       <Toaster />
@@ -36,6 +38,17 @@ const DemoLayout = ({ children }: DemoLayoutProps) => {
               </li>
             ))}
           </ul>
+          {isAuthenticated && (
+            <div>
+              <p>Welcome, {currentUser.id}!</p>
+              <button onClick={() => logOut()}>Logout</button>
+            </div>
+          )}
+          {!isAuthenticated && (
+            <div>
+              <Link to={routes.login()}>Login</Link>
+            </div>
+          )}
         </nav>
       </header>
       <main className="container mx-auto flex-grow px-4 py-8">{children}</main>
