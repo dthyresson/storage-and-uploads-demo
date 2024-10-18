@@ -4,9 +4,9 @@ import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
 import {
   useUploadProgress,
   useUploadsMutation,
-  useUploadToken,
-  getUploadTokenHeaderName,
-  getMutationName,
+  // getMutationName,
+  // getUploadTokenHeaderName,
+  // useUploadToken,
 } from '@redwoodjs/uploads-web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -27,12 +27,6 @@ const DEMO15_MUTATION = gql`
 const Demo15Page = () => {
   const [result, setResult] = useState([])
   const [inProgress, setInProgress] = useState(false)
-  const { fetchOptionsWithProgress, progress, setProgress, onAbortHandler } =
-    useUploadProgress()
-
-  const mutationName = getMutationName(DEMO15_MUTATION)
-  const token = useUploadToken(mutationName)
-  const headerName = getUploadTokenHeaderName()
 
   const [demo15, { error }] = useUploadsMutation(DEMO15_MUTATION, {
     onCompleted: (data) => {
@@ -48,6 +42,9 @@ const Demo15Page = () => {
     },
   })
 
+  const { context, progress, setProgress, onAbortHandler } =
+    useUploadProgress(DEMO15_MUTATION)
+
   const onAbort = () => {
     onAbortHandler()
     setProgress(0)
@@ -59,12 +56,7 @@ const Demo15Page = () => {
       setInProgress(true)
       await demo15({
         variables: { input: data },
-        context: {
-          fetchOptions: { ...fetchOptionsWithProgress },
-          headers: {
-            [headerName]: token,
-          },
-        },
+        context,
       })
     } catch (error) {
       console.error('Unexpected error:', error)

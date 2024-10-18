@@ -22,8 +22,6 @@ const DEMO14_MUTATION = gql`
 const Demo14Page = () => {
   const [result, setResult] = useState(null)
   const [inProgress, setInProgress] = useState(false)
-  const { fetchOptionsWithProgress, progress, setProgress, onAbortHandler } =
-    useUploadProgress()
 
   const [demo14, { error }] = useMutation(DEMO14_MUTATION, {
     onCompleted: (data) => {
@@ -38,6 +36,8 @@ const Demo14Page = () => {
       setInProgress(false)
     },
   })
+  const { context, progress, setProgress, onAbortHandler } =
+    useUploadProgress(DEMO14_MUTATION)
 
   const onAbort = () => {
     onAbortHandler()
@@ -50,7 +50,7 @@ const Demo14Page = () => {
       setInProgress(true)
       await demo14({
         variables: { input: data },
-        context: { fetchOptions: { ...fetchOptionsWithProgress } },
+        context,
       })
     } catch (error) {
       console.error('Unexpected error:', error)
