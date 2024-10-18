@@ -1,7 +1,13 @@
 import { useState } from 'react'
 
 import { Form, FileField, Submit, FieldError } from '@redwoodjs/forms'
-import { useUploadProgress, useUploadsMutation } from '@redwoodjs/uploads-web'
+import {
+  useUploadProgress,
+  useUploadsMutation,
+  useUploadToken,
+  getUploadTokenHeaderName,
+  getMutationName,
+} from '@redwoodjs/uploads-web'
 import { toast } from '@redwoodjs/web/toast'
 
 import Demo from 'src/components/Demo/Demo'
@@ -23,6 +29,10 @@ const Demo15Page = () => {
   const [inProgress, setInProgress] = useState(false)
   const { fetchOptionsWithProgress, progress, setProgress, onAbortHandler } =
     useUploadProgress()
+
+  const mutationName = getMutationName(DEMO15_MUTATION)
+  const token = useUploadToken(mutationName)
+  const headerName = getUploadTokenHeaderName()
 
   const [demo15, { error }] = useUploadsMutation(DEMO15_MUTATION, {
     onCompleted: (data) => {
@@ -51,6 +61,9 @@ const Demo15Page = () => {
         variables: { input: data },
         context: {
           fetchOptions: { ...fetchOptionsWithProgress },
+          headers: {
+            [headerName]: token,
+          },
         },
       })
     } catch (error) {
