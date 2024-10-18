@@ -5995,7 +5995,7 @@ __metadata:
 
 "@redwoodjs/web@file:./tarballs/redwoodjs-web.tgz::locator=root-workspace-0b6124%40workspace%3A.":
   version: 8.0.0
-  resolution: "@redwoodjs/web@file:./tarballs/redwoodjs-web.tgz#./tarballs/redwoodjs-web.tgz::hash=0dc898&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "@redwoodjs/web@file:./tarballs/redwoodjs-web.tgz#./tarballs/redwoodjs-web.tgz::hash=6b479a&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@apollo/client": "npm:3.11.1"
     "@babel/runtime-corejs3": "npm:7.25.7"
@@ -6022,7 +6022,7 @@ __metadata:
     rwfw: ./dist/cjs/bins/rwfw.js
     storybook: ./dist/cjs/bins/storybook.js
     tsc: ./dist/cjs/bins/tsc.js
-  checksum: 10c0/7d39d11b4e628ee51e5fe44be8fa1d338905cb58199477d10c4c2a7e385030e12e06d1892b931f11eb66207f11922b53cb5f1694f6a01450340bb11d3c8d889b
+  checksum: 10c0/03841c0532d09e2613ef3d6d48df2d6fa3b5a7c4ce670b686a230699f1767fae6d0eb013d3e1f7b76b8f505c4102262347061550313b2f6369935f64e839cdcd
   languageName: node
   linkType: hard
 

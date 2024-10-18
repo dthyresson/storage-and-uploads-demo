@@ -128,14 +128,14 @@ export const demos = [
     route: () => routes.demo14(),
     title: 'Demo 14: Upload with Progress Bar',
     description:
-      'Basic upload with a progress bar. Uses withUploadProgress to show the progress.',
+      "Basic upload with a progress bar. Uses withUploadProgress to show the progress. For progress, it' s best to throttle the network speed.",
     tags: ['uploads', 'progress'],
   },
   {
     route: () => routes.demo15(),
     title: 'Demo 15: Upload with Upload Token validation and Progress Bar',
     description:
-      'Redwood Uploads Component with Upload Token validation and Progress Bar. Uses withUploadProgress to show the progress.',
+      "Redwood Uploads Component with Upload Token validation and Progress Bar. Uses withUploadProgress to show the progress. For progress, it's best to throttle the network speed.",
     tags: ['uploads', 'multiple', 'progress'],
   },
   {
@@ -143,7 +143,7 @@ export const demos = [
     title:
       'Demo 16: Upload with Upload Token validation, Progress Bar and Authentication',
     description:
-      'Redwood Uploads Component with Upload Token validation, Progress Bar and Authentication.',
+      "Redwood Uploads Component with Upload Token validation, Progress Bar and Authentication. For progress, it'  s best to throttle the network speed.",
     tags: ['uploads', 'multiple', 'progress', 'auth'],
   },
 ]

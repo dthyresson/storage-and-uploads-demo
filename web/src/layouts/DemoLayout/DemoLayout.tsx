@@ -9,13 +9,13 @@ type DemoLayoutProps = {
 }
 
 const DemoLayout = ({ children }: DemoLayoutProps) => {
-  const { isAuthenticated, currentUser, logOut } = useAuth()
+  const { isAuthenticated, logOut } = useAuth()
   return (
     <div className="flex min-h-screen flex-col">
       <Toaster />
 
       <header className="bg-gray-800 py-4 text-white">
-        <nav className="container mx-auto px-4">
+        <nav className="container mx-auto flex justify-between px-4">
           <ul className="flex space-x-4">
             <li>
               <NavLink
@@ -38,16 +38,23 @@ const DemoLayout = ({ children }: DemoLayoutProps) => {
               </li>
             ))}
           </ul>
-          {isAuthenticated && (
-            <div>
-              <p>Welcome, {currentUser.id}!</p>
-              <button onClick={() => logOut()}>Logout</button>
+          {isAuthenticated ? (
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-300">Welcome!</span>
+              <button
+                className="rounded bg-red-600 px-3 py-1 text-sm font-medium transition duration-150 ease-in-out hover:bg-red-700"
+                onClick={() => logOut()}
+              >
+                Logout
+              </button>
             </div>
-          )}
-          {!isAuthenticated && (
-            <div>
-              <Link to={routes.login()}>Login</Link>
-            </div>
+          ) : (
+            <Link
+              to={routes.login()}
+              className="rounded bg-blue-600 px-3 py-1 text-sm font-medium transition duration-150 ease-in-out hover:bg-blue-700"
+            >
+              Login
+            </Link>
           )}
         </nav>
       </header>
